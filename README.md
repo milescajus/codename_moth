@@ -9,8 +9,8 @@ Currently in development under the codename "Moth".
 Documentation
 ---
 
-- [Project Wiki](wiki)
-- [Credits](Vision-Document#roles)
+- [Project Wiki](https://github.com/milescajus/codename_moth/wiki)
+- [Credits](https://github.com/milescajus/codename_moth/wiki/Vision-Document)
 
 Changelog
 ---
