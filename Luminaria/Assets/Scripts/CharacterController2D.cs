@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.Experimental.U2D.Animation;
+
 using UnityEngine.InputSystem;
 
 public enum GroundType
@@ -25,16 +25,16 @@ public class CharacterController2D : MonoBehaviour
 
     [Header("Equipment")]
     [SerializeField] Transform handAnchor = null;
-    [SerializeField] SpriteLibrary spriteLibrary = null;
+    [SerializeField] UnityEngine.U2D.Animation.SpriteLibrary spriteLibrary = null;
 
     [Header("Movement")]
-    [SerializeField] float acceleration = 0.0f;
+    [SerializeField] float acceleration = 4.0f;
     [SerializeField] float maxSpeed = 0.0f;
-    [SerializeField] float jumpForce = 0.0f;
+    [SerializeField] float jumpForce = 1.0f;
     [SerializeField] float minFlipSpeed = 0.1f;
-    [SerializeField] float jumpGravityScale = 1.0f;
-    [SerializeField] float fallGravityScale = 1.0f;
-    [SerializeField] float groundedGravityScale = 1.0f;
+    [SerializeField] float jumpGravityScale = 3.0f;
+    [SerializeField] float fallGravityScale = 5.0f;
+    [SerializeField] float groundedGravityScale = 2.0f;
     [SerializeField] bool resetSpeedOnLand = false;
 
     private Rigidbody2D controllerRigidbody;
@@ -50,6 +50,8 @@ public class CharacterController2D : MonoBehaviour
     private bool isFlipped;
     private bool isJumping;
     private bool isFalling;
+    private bool isGliding;
+    private bool doubleJump;
 
     private int animatorGroundedBool;
     private int animatorRunningSpeed;
@@ -110,8 +112,25 @@ public class CharacterController2D : MonoBehaviour
         movementInput = new Vector2(moveHorizontal, 0);
 
         // Jumping input
-        if (!isJumping && keyboard.spaceKey.wasPressedThisFrame)
-            jumpInput = true;
+        if (keyboard.spaceKey.wasPressedThisFrame)
+        {
+            if (!isJumping)
+                jumpInput = true;
+            else if (!doubleJump)
+            {
+                jumpInput = true;
+                doubleJump = true;
+            }
+        }
+
+        // Gliding
+        if (keyboard.spaceKey.isPressed && isFalling)
+        {
+            isGliding = true;
+        } else {
+            isGliding = false;
+        }
+
     }
 
     void FixedUpdate()
@@ -172,7 +191,7 @@ public class CharacterController2D : MonoBehaviour
             isFalling = true;
 
         // Jump
-        if (jumpInput && groundType != GroundType.None)
+        if (jumpInput && !isFalling)
         {
             // Jump using impulse force
             controllerRigidbody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
@@ -203,6 +222,7 @@ public class CharacterController2D : MonoBehaviour
             // Reset jumping flags
             isJumping = false;
             isFalling = false;
+            doubleJump = false;
 
             // Play audio
             audioPlayer.PlayLanding(groundType);
@@ -248,7 +268,7 @@ public class CharacterController2D : MonoBehaviour
             gravityScale = controllerRigidbody.velocity.y > 0.0f ? jumpGravityScale : fallGravityScale;           
         }
 
-        controllerRigidbody.gravityScale = gravityScale;
+        controllerRigidbody.gravityScale = isGliding ? gravityScale / 10 : gravityScale;
     }
 
     public void GrabItem(Transform item)
@@ -259,7 +279,7 @@ public class CharacterController2D : MonoBehaviour
         item.localRotation = Quaternion.identity;
     }
 
-    public void SwapSprites(SpriteLibraryAsset spriteLibraryAsset)
+    public void SwapSprites(UnityEngine.U2D.Animation.SpriteLibraryAsset spriteLibraryAsset)
     {
         spriteLibrary.spriteLibraryAsset = spriteLibraryAsset;
     }
