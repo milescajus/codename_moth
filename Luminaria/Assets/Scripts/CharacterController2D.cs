@@ -11,7 +11,8 @@ public enum GroundType
 
 public class CharacterController2D : MonoBehaviour
 {
-    readonly Vector3 flippedScale = new Vector3(-1, 1, 1);
+	static readonly float charScale = 0.3f;
+    readonly Vector3 flippedScale = new Vector3(-1 * charScale, charScale, charScale);
     readonly Quaternion flippedRotation = new Quaternion(0, 0, 1, 0);
 
     [Header("Character")]
@@ -139,7 +140,7 @@ public class CharacterController2D : MonoBehaviour
         UpdateVelocity();
         UpdateDirection();
         UpdateJump();
-        UpdateTailPose();
+        //UpdateTailPose();
         UpdateGravityScale();
 
         prevVelocity = controllerRigidbody.velocity;
@@ -235,7 +236,7 @@ public class CharacterController2D : MonoBehaviour
         if (controllerRigidbody.velocity.x > minFlipSpeed && isFlipped)
         {
             isFlipped = false;
-            puppet.localScale = Vector3.one;
+            puppet.localScale = new Vector3(charScale, charScale, charScale);
         }
         else if (controllerRigidbody.velocity.x < -minFlipSpeed && !isFlipped)
         {
