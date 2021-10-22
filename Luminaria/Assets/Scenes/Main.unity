@@ -446,6 +446,32 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 78950764, guid: 9bd03ab8f38a3cf4a8cf7e42d9718f1e, type: 3}
+      propertyPath: softSteps.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 78950764, guid: 9bd03ab8f38a3cf4a8cf7e42d9718f1e, type: 3}
+      propertyPath: softSteps.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: aed3335b495f1fe418cfd8954c28171e, type: 3}
+    - target: {fileID: 78950764, guid: 9bd03ab8f38a3cf4a8cf7e42d9718f1e, type: 3}
+      propertyPath: softSteps.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0a0ae3558bc777b45b62075085d240db, type: 3}
+    - target: {fileID: 78950764, guid: 9bd03ab8f38a3cf4a8cf7e42d9718f1e, type: 3}
+      propertyPath: softSteps.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 452f10486c8242b4485dce548e961588, type: 3}
+    - target: {fileID: 3898066137624782891, guid: 9bd03ab8f38a3cf4a8cf7e42d9718f1e,
+        type: 3}
+      propertyPath: Mute
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431836015316238530, guid: 9bd03ab8f38a3cf4a8cf7e42d9718f1e,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1535c59d5f5e5b4498b0f35e5b0dafcc, type: 3}
     - target: {fileID: 8431836016390883624, guid: 9bd03ab8f38a3cf4a8cf7e42d9718f1e,
         type: 3}
       propertyPath: m_RootOrder
