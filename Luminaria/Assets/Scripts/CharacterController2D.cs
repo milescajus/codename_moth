@@ -55,6 +55,7 @@ public class CharacterController2D : MonoBehaviour
     private bool doubleJump;
 
     private int animatorGroundedBool;
+    private int animatorFaceLeftBool;
     private int animatorRunningSpeed;
     private int animatorJumpTrigger;
 
@@ -91,6 +92,7 @@ public class CharacterController2D : MonoBehaviour
         animatorGroundedBool = Animator.StringToHash("Grounded");
         animatorRunningSpeed = Animator.StringToHash("RunningSpeed");
         animatorJumpTrigger = Animator.StringToHash("Jump");
+        animatorFaceLeftBool = Animator.StringToHash("FaceLeft");
 
         CanMove = true;
     }
@@ -192,7 +194,7 @@ public class CharacterController2D : MonoBehaviour
             isFalling = true;
 
         // Jump
-        if (jumpInput && !isFalling)
+        if (jumpInput)
         {
             // Jump using impulse force
             controllerRigidbody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
@@ -236,13 +238,15 @@ public class CharacterController2D : MonoBehaviour
         if (controllerRigidbody.velocity.x > minFlipSpeed && isFlipped)
         {
             isFlipped = false;
-            puppet.localScale = new Vector3(charScale, charScale, charScale);
+            // puppet.localScale = new Vector3(charScale, charScale, charScale);
         }
         else if (controllerRigidbody.velocity.x < -minFlipSpeed && !isFlipped)
         {
             isFlipped = true;
-            puppet.localScale = flippedScale;
+            // puppet.localScale = flippedScale;
         }
+        
+        animator.SetBool(animatorFaceLeftBool, isFlipped);
     }
 
     private void UpdateTailPose()
@@ -269,7 +273,7 @@ public class CharacterController2D : MonoBehaviour
             gravityScale = controllerRigidbody.velocity.y > 0.0f ? jumpGravityScale : fallGravityScale;           
         }
 
-        controllerRigidbody.gravityScale = isGliding ? gravityScale / 10 : gravityScale;
+        controllerRigidbody.gravityScale = isGliding ? gravityScale / 5 : gravityScale;
     }
 
     public void GrabItem(Transform item)
