@@ -11,7 +11,7 @@ public enum GroundType
 
 public class CharacterController2D : MonoBehaviour
 {
-	static readonly float charScale = 0.3f;
+    static readonly float charScale = 0.3f;
     readonly Vector3 flippedScale = new Vector3(-1 * charScale, charScale, charScale);
     readonly Quaternion flippedRotation = new Quaternion(0, 0, 1, 0);
 
@@ -19,10 +19,6 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] Animator animator = null;
     [SerializeField] Transform puppet = null;
     [SerializeField] CharacterAudio audioPlayer = null;
-
-    [Header("Tail")]
-    [SerializeField] Transform tailAnchor = null;
-    [SerializeField] Rigidbody2D tailRigidbody = null;
 
     [Header("Equipment")]
     [SerializeField] Transform handAnchor = null;
@@ -46,16 +42,17 @@ public class CharacterController2D : MonoBehaviour
     private Vector2 movementInput;
     private bool jumpInput;
 
+    public AnimatorOverrideController AspenLeft;
+    public AnimatorOverrideController AspenRight;
+
     private Vector2 prevVelocity;
     private GroundType groundType;
-    private bool isFlipped;
     private bool isJumping;
     private bool isFalling;
     private bool isGliding;
     private bool doubleJump;
 
     private int animatorGroundedBool;
-    private int animatorFaceLeftBool;
     private int animatorRunningSpeed;
     private int animatorJumpTrigger;
 
@@ -92,7 +89,6 @@ public class CharacterController2D : MonoBehaviour
         animatorGroundedBool = Animator.StringToHash("Grounded");
         animatorRunningSpeed = Animator.StringToHash("RunningSpeed");
         animatorJumpTrigger = Animator.StringToHash("Jump");
-        animatorFaceLeftBool = Animator.StringToHash("FaceLeft");
 
         CanMove = true;
     }
@@ -196,11 +192,11 @@ public class CharacterController2D : MonoBehaviour
         // Jump
         if (jumpInput)
         {
-            // Jump using impulse force
-            controllerRigidbody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-
             // Set animator
             animator.SetTrigger(animatorJumpTrigger);
+
+            // Jump using impulse force
+            controllerRigidbody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
 
             // We've consumed the jump, reset it.
             jumpInput = false;
@@ -234,32 +230,15 @@ public class CharacterController2D : MonoBehaviour
 
     private void UpdateDirection()
     {
-        // Use scale to flip character depending on direction
-        if (controllerRigidbody.velocity.x > minFlipSpeed && isFlipped)
+        // Use animator overrides to flip character depending on direction
+        if (controllerRigidbody.velocity.x > minFlipSpeed)
         {
-            isFlipped = false;
-            // puppet.localScale = new Vector3(charScale, charScale, charScale);
+	    animator.runtimeAnimatorController = AspenRight;
         }
-        else if (controllerRigidbody.velocity.x < -minFlipSpeed && !isFlipped)
+        else if (controllerRigidbody.velocity.x < -minFlipSpeed)
         {
-            isFlipped = true;
-            // puppet.localScale = flippedScale;
+	    animator.runtimeAnimatorController = AspenLeft;
         }
-        
-        animator.SetBool(animatorFaceLeftBool, isFlipped);
-    }
-
-    private void UpdateTailPose()
-    {
-        // Calculate the extrapolated target position of the tail anchor.
-        Vector2 targetPosition = tailAnchor.position;
-        targetPosition += controllerRigidbody.velocity * Time.fixedDeltaTime;
-
-        tailRigidbody.MovePosition(targetPosition);
-        if (isFlipped)
-            tailRigidbody.SetRotation(tailAnchor.rotation * flippedRotation);
-        else
-            tailRigidbody.SetRotation(tailAnchor.rotation);
     }
 
     private void UpdateGravityScale()
