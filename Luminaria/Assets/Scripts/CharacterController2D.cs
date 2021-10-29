@@ -32,6 +32,7 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] float acceleration = 4.0f;
     [SerializeField] float maxSpeed = 0.0f;
     [SerializeField] float jumpForce = 1.0f;
+    [SerializeField] float doubleJumpForce = 1.0f;
     [SerializeField] float minFlipSpeed = 0.1f;
     [SerializeField] float jumpGravityScale = 3.0f;
     [SerializeField] float fallGravityScale = 5.0f;
@@ -196,9 +197,17 @@ public class CharacterController2D : MonoBehaviour
         // Jump
         if (jumpInput)
         {
-            // Jump using impulse force
-            controllerRigidbody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-
+            if (doubleJump)
+            {
+                // Double Jump using impulse force with weaker jump force
+                controllerRigidbody.AddForce(new Vector2(0, doubleJumpForce), ForceMode2D.Impulse);
+            }
+            else
+            {
+                // Jump using impulse force
+                controllerRigidbody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            }
+            
             // Set animator
             animator.SetTrigger(animatorJumpTrigger);
 

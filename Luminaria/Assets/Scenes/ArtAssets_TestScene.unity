@@ -36987,9 +36987,19 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 7906095723340371953, guid: 21c18efccfb014049bdf0988134a95ce,
         type: 3}
+      propertyPath: jumpForce
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7906095723340371953, guid: 21c18efccfb014049bdf0988134a95ce,
+        type: 3}
       propertyPath: audioPlayer
       value: 
       objectReference: {fileID: 432623615}
+    - target: {fileID: 7906095723340371953, guid: 21c18efccfb014049bdf0988134a95ce,
+        type: 3}
+      propertyPath: doubleJumpForce
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7906095723340371957, guid: 21c18efccfb014049bdf0988134a95ce,
         type: 3}
       propertyPath: m_Name
