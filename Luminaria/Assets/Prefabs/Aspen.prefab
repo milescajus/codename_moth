@@ -114,7 +114,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1950422495
   m_SortingLayer: 1
-  m_SortingOrder: 31
+  m_SortingOrder: 5
   m_Sprite: {fileID: -133053938141852622, guid: 4221b96985f8de6479c24a26cfe17438,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -148,7 +148,8 @@ MonoBehaviour:
   spriteLibrary: {fileID: 0}
   acceleration: 30
   maxSpeed: 4
-  jumpForce: 8
+  jumpForce: 12
+  doubleJumpForce: 8
   minFlipSpeed: 0.1
   jumpGravityScale: 1
   fallGravityScale: 2.5
