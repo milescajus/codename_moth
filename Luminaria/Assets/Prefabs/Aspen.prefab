@@ -48,11 +48,11 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
+  m_UseAutoMass: 1
   m_Mass: 1
   m_LinearDrag: 5
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0.5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -142,19 +142,21 @@ MonoBehaviour:
   animator: {fileID: 7906095723340371958}
   puppet: {fileID: 7906095723340371965}
   audioPlayer: {fileID: 0}
-  tailAnchor: {fileID: 0}
-  tailRigidbody: {fileID: 0}
   handAnchor: {fileID: 0}
   spriteLibrary: {fileID: 0}
   acceleration: 30
-  maxSpeed: 4
-  jumpForce: 12
-  doubleJumpForce: 8
+  maxSpeed: 8
+  jumpForce: 25
   minFlipSpeed: 0.1
-  jumpGravityScale: 1
-  fallGravityScale: 2.5
+  jumpGravityScale: 2
+  fallGravityScale: 5
   groundedGravityScale: 1
   resetSpeedOnLand: 0
+  test:
+    m_PersistentCalls:
+      m_Calls: []
+  AspenLeft: {fileID: 22100000, guid: 9001cb7778ac53e41b1fdef91b2b7eeb, type: 2}
+  AspenRight: {fileID: 22100000, guid: 7bc5a0c51b0f71f6694b54a7efc38513, type: 2}
 --- !u!95 &7906095723340371958
 Animator:
   serializedVersion: 3

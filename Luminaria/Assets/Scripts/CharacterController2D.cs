@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 using UnityEngine.InputSystem;
 
@@ -33,6 +34,7 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] float fallGravityScale = 5.0f;
     [SerializeField] float groundedGravityScale = 2.0f;
     [SerializeField] bool resetSpeedOnLand = false;
+    [SerializeField] UnityEvent test;
 
     private Rigidbody2D controllerRigidbody;
     private Collider2D controllerCollider;
@@ -252,7 +254,7 @@ public class CharacterController2D : MonoBehaviour
             gravityScale = controllerRigidbody.velocity.y > 0.0f ? jumpGravityScale : fallGravityScale;           
         }
 
-        controllerRigidbody.gravityScale = isGliding ? gravityScale / 5 : gravityScale;
+        controllerRigidbody.gravityScale = isGliding ? gravityScale / 3 : gravityScale;
     }
 
     public void GrabItem(Transform item)
