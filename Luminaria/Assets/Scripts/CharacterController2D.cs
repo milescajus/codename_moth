@@ -46,6 +46,8 @@ public class CharacterController2D : MonoBehaviour
 
     public AnimatorOverrideController AspenLeft;
     public AnimatorOverrideController AspenRight;
+    public bool isBurning = false;
+    public bool faceRight = false;
 
     private Vector2 prevVelocity;
     private GroundType groundType;
@@ -53,10 +55,13 @@ public class CharacterController2D : MonoBehaviour
     private bool isFalling;
     private bool isGliding;
     private bool doubleJump;
+    private bool hasTransitioned;
 
     private int animatorGroundedBool;
     private int animatorRunningSpeed;
     private int animatorJumpTrigger;
+    private int animatorBurnTrigger;
+    private int animatorBurningBool;
 
     public bool CanMove { get; set; }
 
@@ -91,6 +96,8 @@ public class CharacterController2D : MonoBehaviour
         animatorGroundedBool = Animator.StringToHash("Grounded");
         animatorRunningSpeed = Animator.StringToHash("RunningSpeed");
         animatorJumpTrigger = Animator.StringToHash("Jump");
+        animatorBurnTrigger = Animator.StringToHash("Burn");
+        animatorBurningBool = Animator.StringToHash("Burning");
 
         CanMove = true;
     }
@@ -105,10 +112,24 @@ public class CharacterController2D : MonoBehaviour
         // Horizontal movement
         float moveHorizontal = 0.0f;
 
-        if (keyboard.leftArrowKey.isPressed || keyboard.aKey.isPressed)
-            moveHorizontal = -1.0f;
-        else if (keyboard.rightArrowKey.isPressed || keyboard.dKey.isPressed)
-            moveHorizontal = 1.0f;
+        if (!keyboard.shiftKey.isPressed)
+        {
+            isBurning = false;
+            hasTransitioned = false;
+
+            if (keyboard.leftArrowKey.isPressed || keyboard.aKey.isPressed)
+                moveHorizontal = -1.0f;
+            else if (keyboard.rightArrowKey.isPressed || keyboard.dKey.isPressed)
+                moveHorizontal = 1.0f;
+
+        } else if (!isFalling) {
+            // only allow burning while falling and not moving
+            if (!hasTransitioned) {
+                animator.SetTrigger(animatorBurnTrigger);
+                hasTransitioned = true;
+            }
+            isBurning = true;
+        }
 
         movementInput = new Vector2(moveHorizontal, 0);
 
@@ -131,16 +152,14 @@ public class CharacterController2D : MonoBehaviour
         } else {
             isGliding = false;
         }
-
     }
 
     void FixedUpdate()
     {
         UpdateGrounding();
         UpdateVelocity();
-        UpdateDirection();
+        UpdateAnimation();
         UpdateJump();
-        //UpdateTailPose();
         UpdateGravityScale();
 
         prevVelocity = controllerRigidbody.velocity;
@@ -230,18 +249,23 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
-    private void UpdateDirection()
+    private void UpdateAnimation()
     {
+        animator.SetBool(animatorBurningBool, isBurning);
+
+        animator.runtimeAnimatorController = faceRight? AspenRight : AspenLeft;
+
         // Use animator overrides to flip character depending on direction
         if (controllerRigidbody.velocity.x > minFlipSpeed)
         {
-	    animator.runtimeAnimatorController = AspenRight;
+            faceRight = true;
         }
         else if (controllerRigidbody.velocity.x < -minFlipSpeed)
         {
-	    animator.runtimeAnimatorController = AspenLeft;
+            faceRight = false;
         }
     }
+
 
     private void UpdateGravityScale()
     {
