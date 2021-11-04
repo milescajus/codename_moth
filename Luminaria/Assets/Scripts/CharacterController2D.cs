@@ -37,7 +37,8 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] UnityEvent test;
 
     private Rigidbody2D controllerRigidbody;
-    private Collider2D controllerCollider;
+    private CapsuleCollider2D controllerCollider;
+    private float colliderOffset = .4f;
     private LayerMask softGroundMask;
     private LayerMask hardGroundMask;
 
@@ -89,7 +90,7 @@ public class CharacterController2D : MonoBehaviour
 #endif
 
         controllerRigidbody = GetComponent<Rigidbody2D>();
-        controllerCollider = GetComponent<Collider2D>();
+        controllerCollider = GetComponent<CapsuleCollider2D>();
         softGroundMask = LayerMask.GetMask("Ground Soft");
         hardGroundMask = LayerMask.GetMask("Ground Hard");
 
@@ -259,10 +260,12 @@ public class CharacterController2D : MonoBehaviour
         if (controllerRigidbody.velocity.x > minFlipSpeed)
         {
             faceRight = true;
+            controllerCollider.GetComponent<CapsuleCollider2D>().offset = new Vector2(colliderOffset, controllerCollider.offset.y);
         }
         else if (controllerRigidbody.velocity.x < -minFlipSpeed)
         {
             faceRight = false;
+            controllerCollider.GetComponent<CapsuleCollider2D>().offset = new Vector2(-colliderOffset, controllerCollider.offset.y);
         }
     }
 

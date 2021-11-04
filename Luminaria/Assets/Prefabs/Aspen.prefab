@@ -157,9 +157,8 @@ MonoBehaviour:
       m_Calls: []
   AspenLeft: {fileID: 22100000, guid: 9001cb7778ac53e41b1fdef91b2b7eeb, type: 2}
   AspenRight: {fileID: 22100000, guid: 7bc5a0c51b0f71f6694b54a7efc38513, type: 2}
-  AspenLeftBurn: {fileID: 22100000, guid: cb2773cccffe46724ab8de34d23976d2, type: 2}
-  AspenRightBurn: {fileID: 22100000, guid: 642fd921302913c0c8776fea32ea901a, type: 2}
   isBurning: 0
+  faceRight: 0
 --- !u!95 &7906095723340371958
 Animator:
   serializedVersion: 3
