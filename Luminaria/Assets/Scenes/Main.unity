@@ -1044,6 +1044,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7906095723340371953, guid: 21c18efccfb014049bdf0988134a95ce,
         type: 3}
+      propertyPath: AspenRight
+      value: 
+      objectReference: {fileID: 22100000, guid: 2550dff1dce284647b44954c134fa4e8,
+        type: 2}
+    - target: {fileID: 7906095723340371953, guid: 21c18efccfb014049bdf0988134a95ce,
+        type: 3}
       propertyPath: audioPlayer
       value: 
       objectReference: {fileID: 432623615}
