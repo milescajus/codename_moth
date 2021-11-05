@@ -19866,6 +19866,59 @@ MonoBehaviour:
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!1 &756943893
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 756943894}
+  - component: {fileID: 756943895}
+  m_Layer: 0
+  m_Name: Barrier
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &756943894
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756943893}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 883087206}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &756943895
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756943893}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.69, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.5, y: 6.256446}
+  - {x: -0.48315597, y: -6.167068}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &759416158
 GameObject:
   m_ObjectHideFlags: 0
@@ -21740,6 +21793,8 @@ GameObject:
   m_Component:
   - component: {fileID: 883087206}
   - component: {fileID: 883087205}
+  - component: {fileID: 883087208}
+  - component: {fileID: 883087207}
   m_Layer: 0
   m_Name: DEADBUSH
   m_TagString: Untagged
@@ -21809,10 +21864,51 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.17, y: 0.07, z: 0}
   m_LocalScale: {x: 0.5736329, y: 0.5736329, z: 0.5736329}
-  m_Children: []
+  m_Children:
+  - {fileID: 756943894}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &883087207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883087204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30e0067dd1c968df7906ab86a3bd5a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerActive: 0
+  Aspen: {fileID: 7906095724789732454}
+--- !u!61 &883087208
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883087204}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.3128214, y: 0.044688225}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 15, y: 15}
+    newSize: {x: 15, y: 15}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 11.693022, y: 12.408045}
+  m_EdgeRadius: 0
 --- !u!1001 &904104553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52303,11 +52399,6 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 7906095723340371953, guid: 21c18efccfb014049bdf0988134a95ce,
         type: 3}
-      propertyPath: jumpForce
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 7906095723340371953, guid: 21c18efccfb014049bdf0988134a95ce,
-        type: 3}
       propertyPath: AspenRight
       value: 
       objectReference: {fileID: 22100000, guid: 2550dff1dce284647b44954c134fa4e8,
@@ -52394,6 +52485,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21c18efccfb014049bdf0988134a95ce, type: 3}
+--- !u!114 &7906095724789732454 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7906095723340371953, guid: 21c18efccfb014049bdf0988134a95ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 7906095724789732453}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec7379ebb24eb1478bb7ad77827756b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7928108577112020342
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7906095723340371956}
   m_Layer: 0
   m_Name: Aspen
-  m_TagString: Untagged
+  m_TagString: Aspen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,7 +156,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AspenLeft: {fileID: 22100000, guid: 9001cb7778ac53e41b1fdef91b2b7eeb, type: 2}
-  AspenRight: {fileID: 22100000, guid: 7bc5a0c51b0f71f6694b54a7efc38513, type: 2}
+  AspenRight: {fileID: 0}
   isBurning: 0
   faceRight: 0
 --- !u!95 &7906095723340371958

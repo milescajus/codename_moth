@@ -55,7 +55,7 @@ public class CharacterController2D : MonoBehaviour
     private bool isJumping;
     private bool isFalling;
     private bool isGliding;
-    private bool doubleJump;
+    private bool doubleJump = false;
     private bool hasTransitioned;
 
     private int animatorGroundedBool;
