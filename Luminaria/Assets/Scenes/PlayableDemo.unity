@@ -24705,6 +24705,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1168429942}
     m_Modifications:
+    - target: {fileID: 78950764, guid: 9bd03ab8f38a3cf4a8cf7e42d9718f1e, type: 3}
+      propertyPath: stepsTimeGap
+      value: 0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2629247826400000026, guid: 9bd03ab8f38a3cf4a8cf7e42d9718f1e,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 14.754238
+      objectReference: {fileID: 0}
+    - target: {fileID: 2629247826400000026, guid: 9bd03ab8f38a3cf4a8cf7e42d9718f1e,
+        type: 3}
+      propertyPath: MinDistance
+      value: 10.299309
+      objectReference: {fileID: 0}
+    - target: {fileID: 2629247826400000026, guid: 9bd03ab8f38a3cf4a8cf7e42d9718f1e,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1535c59d5f5e5b4498b0f35e5b0dafcc, type: 3}
     - target: {fileID: 8431836015106045373, guid: 9bd03ab8f38a3cf4a8cf7e42d9718f1e,
         type: 3}
       propertyPath: m_IsActive
@@ -24769,6 +24788,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Audio
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431836016817171704, guid: 9bd03ab8f38a3cf4a8cf7e42d9718f1e,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 372e23540cb291a4baf709ec6b5d35cc, type: 3}
+    - target: {fileID: 9220637403320098773, guid: 9bd03ab8f38a3cf4a8cf7e42d9718f1e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bd03ab8f38a3cf4a8cf7e42d9718f1e, type: 3}
