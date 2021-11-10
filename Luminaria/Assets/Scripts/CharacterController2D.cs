@@ -64,6 +64,8 @@ public class CharacterController2D : MonoBehaviour
     private int animatorBurnTrigger;
     private int animatorBurningBool;
 
+    public int chargeLevel = 0;
+
     public bool CanMove { get; set; }
 
     void Start()
@@ -153,6 +155,10 @@ public class CharacterController2D : MonoBehaviour
         } else {
             isGliding = false;
         }
+
+        // Debug Charging
+        if (keyboard.cKey.wasPressedThisFrame)
+            chargeLevel = 3;
     }
 
     void FixedUpdate()

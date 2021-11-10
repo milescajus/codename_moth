@@ -1,11 +1,9 @@
 using UnityEngine;
 
-public class Burnables : MonoBehaviour
+public class Charging : MonoBehaviour
 {
     [SerializeField] private bool triggerActive = false;
     [SerializeField] public CharacterController2D Aspen;
-    [SerializeField] private int ChargeCost = 1;
-    private bool hasDepleted = false;
 
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -23,13 +21,8 @@ public class Burnables : MonoBehaviour
 
     private void Update()
     {
-        if (triggerActive && Aspen.isBurning && (Aspen.chargeLevel != 0)) {
-            Destroy(gameObject, 1);
-
-            if (!hasDepleted) {
-                Aspen.chargeLevel -= ChargeCost;
-                hasDepleted = true;
-            }
+        if (triggerActive && Aspen.isBurning && (Aspen.chargeLevel < 3)) {
+            Aspen.chargeLevel = 3;
         }
     }
 }
