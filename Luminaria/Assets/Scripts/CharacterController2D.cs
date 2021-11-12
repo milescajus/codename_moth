@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -71,6 +72,7 @@ public class CharacterController2D : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(UpdateStaffCharge());
 #if UNITY_EDITOR
         if (Keyboard.current == null)
         {
@@ -167,22 +169,25 @@ public class CharacterController2D : MonoBehaviour
         UpdateGrounding();
         UpdateVelocity();
         UpdateAnimation();
-        UpdateStaffCharge();
         UpdateJump();
         UpdateGravityScale();
 
         prevVelocity = controllerRigidbody.velocity;
     }
 
-    private void UpdateStaffCharge()
+    private IEnumerator UpdateStaffCharge()
     {
-        var levels = new HashSet<int> {0, 1, 2, 3};
+        while(true) {
+            yield return new WaitForSeconds(1.0f);
 
-        transform.GetChild(chargeLevel).gameObject.SetActive(true);
-        levels.Remove(chargeLevel);
+            var levels = new HashSet<int> {0, 1, 2, 3};
 
-        foreach (int n in levels) {
-            transform.GetChild(n).gameObject.SetActive(false);
+            transform.GetChild(chargeLevel).gameObject.SetActive(true);
+            levels.Remove(chargeLevel);
+
+            foreach (int n in levels) {
+                transform.GetChild(n).gameObject.SetActive(false);
+            }
         }
     }
 
