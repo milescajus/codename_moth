@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -166,10 +167,23 @@ public class CharacterController2D : MonoBehaviour
         UpdateGrounding();
         UpdateVelocity();
         UpdateAnimation();
+        UpdateStaffCharge();
         UpdateJump();
         UpdateGravityScale();
 
         prevVelocity = controllerRigidbody.velocity;
+    }
+
+    private void UpdateStaffCharge()
+    {
+        var levels = new HashSet<int> {0, 1, 2, 3};
+
+        transform.GetChild(chargeLevel).gameObject.SetActive(true);
+        levels.Remove(chargeLevel);
+
+        foreach (int n in levels) {
+            transform.GetChild(n).gameObject.SetActive(false);
+        }
     }
 
     private void UpdateGrounding()
