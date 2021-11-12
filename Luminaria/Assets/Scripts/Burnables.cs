@@ -18,6 +18,7 @@ public class Burnables : MonoBehaviour
         fire.GetComponent<ParticleSystem> ().GetComponent<Renderer> ().sortingLayerName = "Foreground";
         fire.GetComponent<ParticleSystem> ().GetComponent<Renderer> ().sortingOrder = 21;
         soundClip = GetComponent<AudioSource>();
+        StartCoroutine(UpdateTransparency());
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -54,13 +55,21 @@ public class Burnables : MonoBehaviour
         }
 
         Destroy(transform.GetChild(0).gameObject, 1);
-        GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
 
         transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Stop();
+        Destroy(transform.GetChild(0).gameObject, 1);
 
         if (!hasDepleted) {
             Aspen.chargeLevel -= ChargeCost;
             hasDepleted = true;
+        }
+    }
+
+    private IEnumerator UpdateTransparency()
+    {
+        while(true) {
+            yield return new WaitForSeconds(1.0f);
+            GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, hasBurned ? 0f : 1f);
         }
     }
 }
