@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class SceneButton : MonoBehaviour
+
+public class SceneButton : MonoBehaviour, IPointerEnterHandler
 {
     [SerializeField] private string nextSceneName;
     [SerializeField] private string CurrentScene;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip mouseHover;
+
 
     public void loadCredit()
     {
@@ -33,4 +38,11 @@ public class SceneButton : MonoBehaviour
     {
         SceneManager.LoadScene(nextSceneName);
     }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        audioSource.PlayOneShot(mouseHover);
+
+    }
+
 }
