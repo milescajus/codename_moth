@@ -13,10 +13,10 @@ public class SceneButton : MonoBehaviour, IPointerEnterHandler
     [SerializeField] AudioClip mouseHover;
 
 
-    public void loadCredit()
-    {
-        SceneManager.LoadScene("Credit");
-    }
+    //public void loadCredit()
+    //{
+    //    SceneManager.LoadScene("Credit");
+    //}
 
     public void exitGame()
     {
