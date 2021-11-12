@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Burnables : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class Burnables : MonoBehaviour
     [SerializeField] private int ChargeCost = 1;
     private bool hasPlayedClip = false;
     private bool hasDepleted = false;
+    private bool hasBurned = false;
     AudioSource soundClip;
     GameObject fire;
 
@@ -35,22 +37,30 @@ public class Burnables : MonoBehaviour
     private void Update()
     {
         if (triggerActive && Aspen.isBurning && (Aspen.chargeLevel != 0)) {
-            if (!hasPlayedClip) {
-                soundClip.Play();
-                transform.GetChild(1).gameObject.SetActive(true);
-                transform.GetChild(2).gameObject.SetActive(true);
-                hasPlayedClip = true;
+            if (!hasBurned) {
+                Burn();
+                hasBurned = true;
             }
+        }
+    }
 
-            Destroy(gameObject, 1);
-            // Destroy(transform.GetChild(0).gameObject, 1);
+    private void Burn()
+    {
+        if (!hasPlayedClip) {
+            soundClip.Play();
+            transform.GetChild(1).gameObject.SetActive(true);
+            transform.GetChild(2).gameObject.SetActive(true);
+            hasPlayedClip = true;
+        }
 
-            // fire.GetComponent<ParticleSystem>().Stop();
+        Destroy(transform.GetChild(0).gameObject, 1);
+        GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
 
-            if (!hasDepleted) {
-                Aspen.chargeLevel -= ChargeCost;
-                hasDepleted = true;
-            }
+        transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Stop();
+
+        if (!hasDepleted) {
+            Aspen.chargeLevel -= ChargeCost;
+            hasDepleted = true;
         }
     }
 }
