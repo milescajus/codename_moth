@@ -55,6 +55,7 @@ public class Burnables : MonoBehaviour
         }
 
         Destroy(transform.GetChild(0).gameObject, 1);
+        Destroy(transform.GetChild(2).gameObject, 0.5f);
 
         transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Stop();
         Destroy(transform.GetChild(0).gameObject, 1);
@@ -68,7 +69,7 @@ public class Burnables : MonoBehaviour
     private IEnumerator UpdateTransparency()
     {
         while(true) {
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(.5f);
             GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, hasBurned ? 0f : 1f);
         }
     }
