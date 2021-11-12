@@ -2830,8 +2830,8 @@ Transform:
   m_LocalPosition: {x: -0.92, y: 1.76, z: -6210.983}
   m_LocalScale: {x: 1.3229963, y: 1.3229963, z: 1.3229963}
   m_Children:
-  - {fileID: 1964810662}
   - {fileID: 391409311}
+  - {fileID: 1964810662}
   - {fileID: 330739554}
   m_Father: {fileID: 1772323736}
   m_RootOrder: 3
@@ -6119,7 +6119,7 @@ Transform:
   m_LocalScale: {x: 0.15607847, y: 0.15607847, z: 0.15607847}
   m_Children: []
   m_Father: {fileID: 179750298}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
 --- !u!199 &391409312
 ParticleSystemRenderer:
@@ -6261,7 +6261,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -6763,7 +6763,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -36303,6 +36303,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1284182164}
   - component: {fileID: 1284182165}
+  - component: {fileID: 1284182166}
+  - component: {fileID: 1284182167}
   m_Layer: 0
   m_Name: Moth_ChargingStation
   m_TagString: Untagged
@@ -36318,7 +36320,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1284182163}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 100.82, y: 10.52, z: 3.0224686}
+  m_LocalPosition: {x: -11.9, y: -0.07, z: 3.0224686}
   m_LocalScale: {x: 0.5083, y: 0.5083, z: 0.5083}
   m_Children: []
   m_Father: {fileID: 1440090242}
@@ -36344,7 +36346,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -36362,8 +36364,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1950422495
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 855ccd88457f14e57b4291b3cc180a20, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -36376,6 +36378,46 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1284182166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284182163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c30e346e17d2361f82bb9ad9d06ed2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerActive: 0
+  Aspen: {fileID: 7906095724789732454}
+--- !u!61 &1284182167
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284182163}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.36532283, y: -1.4075086}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 15, y: 15}
+    newSize: {x: 15, y: 15}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.8264823, y: 6.3399167}
+  m_EdgeRadius: 0
 --- !u!1 &1296742441
 GameObject:
   m_ObjectHideFlags: 0
@@ -50951,7 +50993,7 @@ Transform:
   m_LocalScale: {x: 0.5831577, y: 0.5831577, z: 0.5831577}
   m_Children: []
   m_Father: {fileID: 179750298}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!330 &1964810663
 ParticleSystemForceField:
