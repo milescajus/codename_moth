@@ -180,7 +180,7 @@ public class CharacterController2D : MonoBehaviour
         while(true) {
             yield return new WaitForSeconds(1.0f);
 
-            var levels = new HashSet<int> {0, 1, 2, 3};
+            var levels = new HashSet<int> {2, 3, 4, 5};
 
             transform.GetChild(chargeLevel).gameObject.SetActive(true);
             levels.Remove(chargeLevel);
@@ -241,8 +241,6 @@ public class CharacterController2D : MonoBehaviour
         {
             // Set animator
             animator.SetTrigger(animatorJumpTrigger);
-
-            //yield return new WaitForSeconds(0.25f);
 
             // Jump using impulse force
             controllerRigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);

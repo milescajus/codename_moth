@@ -69,9 +69,9 @@ Material:
     - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioA: 0.6666667
+    - _ScaleRatioB: 0.5416667
+    - _ScaleRatioC: 0.5416667
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -116,9 +116,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: Cardenio Modern Std SDF
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: -159614764
   material: {fileID: -6424678486076454050}
-  materialHashCode: 0
+  materialHashCode: -530254988
   m_Version: 1.1.0
   m_SourceFontFileGUID: 8c848cf95d2274e44a1fce353ef5222d
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 8c848cf95d2274e44a1fce353ef5222d,
