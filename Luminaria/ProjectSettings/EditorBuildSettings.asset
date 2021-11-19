@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/KeyGuide.unity
     guid: 4b6f6fa399acea0408c93845283ddea7
   - enabled: 1
+    path: Assets/Scenes/LoadingScreen.unity
+    guid: 74ad26a84a8d07f4091916b60a119761
+  - enabled: 1
     path: Assets/Scenes/PlayableDemo.unity
     guid: 00fcbf6a6349746dfbd6104310dc5c77
   - enabled: 1
