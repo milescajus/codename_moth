@@ -56,8 +56,7 @@ public class Burnables : MonoBehaviour
     {
         if (!hasPlayedClip) {
             soundClip.Play();
-            ps.gameObject.SetActive(true);      // fire element
-            ps.Play();
+            ps.gameObject.transform.parent.gameObject.SetActive(true);      // fire element
             lt.gameObject.SetActive(true);      // fire light
             hasPlayedClip = true;
         }
@@ -83,9 +82,9 @@ public class Burnables : MonoBehaviour
 
         ps.Stop();
 
-        Color c = GetComponent<SpriteRenderer>().color;
-        c.a = 0f;
-        GetComponent<SpriteRenderer>().color = c;
+        Color end = GetComponent<SpriteRenderer>().color;
+        end.a = 0f;
+        GetComponent<SpriteRenderer>().color = end;
 
         Destroy(lt.gameObject);
         Destroy(barrier.gameObject);
