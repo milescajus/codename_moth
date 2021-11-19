@@ -61287,7 +61287,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.73
   m_Color: {r: 1, g: 0.47913224, b: 0, a: 1}
-  m_Intensity: 1.2
+  m_Intensity: 3
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: c3e8a4ea196d85764d103c0da9d0776800000000df1541744f1c97a2
@@ -90088,28 +90088,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1168429942}
     m_Modifications:
-    - target: {fileID: 7906095723340371952, guid: 21c18efccfb014049bdf0988134a95ce,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 26
-      objectReference: {fileID: 0}
-    - target: {fileID: 7906095723340371952, guid: 21c18efccfb014049bdf0988134a95ce,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-    - target: {fileID: 7906095723340371953, guid: 21c18efccfb014049bdf0988134a95ce,
-        type: 3}
-      propertyPath: AspenLeft
-      value: 
-      objectReference: {fileID: 22100000, guid: 9001cb7778ac53e41b1fdef91b2b7eeb,
-        type: 2}
-    - target: {fileID: 7906095723340371953, guid: 21c18efccfb014049bdf0988134a95ce,
-        type: 3}
-      propertyPath: AspenRight
-      value: 
-      objectReference: {fileID: 22100000, guid: 2550dff1dce284647b44954c134fa4e8,
-        type: 2}
     - target: {fileID: 7906095723340371953, guid: 21c18efccfb014049bdf0988134a95ce,
         type: 3}
       propertyPath: audioPlayer
@@ -90124,6 +90102,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mass
       value: 1.4493064
+      objectReference: {fileID: 0}
+    - target: {fileID: 7906095723340371954, guid: 21c18efccfb014049bdf0988134a95ce,
+        type: 3}
+      propertyPath: m_UseAutoMass
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7906095723340371957, guid: 21c18efccfb014049bdf0988134a95ce,
         type: 3}

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 using System.Collections;
 
 public class Burnables : MonoBehaviour
@@ -18,7 +19,6 @@ public class Burnables : MonoBehaviour
         fire.GetComponent<ParticleSystem> ().GetComponent<Renderer> ().sortingLayerName = "Foreground";
         fire.GetComponent<ParticleSystem> ().GetComponent<Renderer> ().sortingOrder = 21;
         soundClip = GetComponent<AudioSource>();
-        StartCoroutine(UpdateTransparency());
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -39,6 +39,7 @@ public class Burnables : MonoBehaviour
     {
         if (triggerActive && Aspen.isBurning && (Aspen.chargeLevel != 0)) {
             if (!hasBurned) {
+                StartCoroutine(IsBurning());
                 Burn();
                 hasBurned = true;
             }
@@ -49,16 +50,10 @@ public class Burnables : MonoBehaviour
     {
         if (!hasPlayedClip) {
             soundClip.Play();
-            transform.GetChild(1).gameObject.SetActive(true);
-            transform.GetChild(2).gameObject.SetActive(true);
+            transform.GetChild(1).gameObject.SetActive(true);   // fire element
+            transform.GetChild(2).gameObject.SetActive(true);   // fire light
             hasPlayedClip = true;
         }
-
-        Destroy(transform.GetChild(0).gameObject, 1);
-        Destroy(transform.GetChild(2).gameObject, 0.5f);
-
-        transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Stop();
-        Destroy(transform.GetChild(0).gameObject, 1);
 
         if (!hasDepleted) {
             Aspen.chargeLevel -= ChargeCost;
@@ -66,11 +61,19 @@ public class Burnables : MonoBehaviour
         }
     }
 
-    private IEnumerator UpdateTransparency()
+    private IEnumerator IsBurning()
     {
-        while(true) {
-            yield return new WaitForSeconds(.5f);
-            GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, hasBurned ? 0f : 1f);
+        for (float ft = 1f; ft >= 0; ft -= 0.1f) 
+        {
+            Color c = GetComponent<SpriteRenderer>().color;
+            c.a = ft;
+            GetComponent<SpriteRenderer>().color = c;
+            transform.GetChild(2).gameObject.GetComponent<Light2D>().intensity = 3*ft;
+            yield return new WaitForSeconds(.15f);
         }
+
+        transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Stop();
+        Destroy(transform.GetChild(2).gameObject);           // fire light
+        Destroy(transform.GetChild(0).gameObject);           // edge collider (barrier)
     }
 }

@@ -94,7 +94,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -114,7 +114,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1950422495
   m_SortingLayer: 1
-  m_SortingOrder: 5
+  m_SortingOrder: 26
   m_Sprite: {fileID: -133053938141852622, guid: 4221b96985f8de6479c24a26cfe17438,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -146,7 +146,7 @@ MonoBehaviour:
   spriteLibrary: {fileID: 0}
   acceleration: 30
   maxSpeed: 8
-  jumpForce: 25
+  jumpForce: 35
   minFlipSpeed: 0.1
   jumpGravityScale: 2
   fallGravityScale: 5
@@ -159,6 +159,7 @@ MonoBehaviour:
   AspenRight: {fileID: 22100000, guid: 2550dff1dce284647b44954c134fa4e8, type: 2}
   isBurning: 0
   faceRight: 0
+  chargeLevel: 0
 --- !u!95 &7906095723340371958
 Animator:
   serializedVersion: 3
