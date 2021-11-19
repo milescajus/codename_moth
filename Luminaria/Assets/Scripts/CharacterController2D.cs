@@ -65,6 +65,7 @@ public class CharacterController2D : MonoBehaviour
     private int animatorJumpTrigger;
     private int animatorBurnTrigger;
     private int animatorBurningBool;
+    private int animatorGlidingBool;
 
     public int chargeLevel = 0;
 
@@ -104,6 +105,7 @@ public class CharacterController2D : MonoBehaviour
         animatorJumpTrigger = Animator.StringToHash("Jump");
         animatorBurnTrigger = Animator.StringToHash("Burn");
         animatorBurningBool = Animator.StringToHash("Burning");
+        animatorGlidingBool = Animator.StringToHash("Gliding");
 
         CanMove = true;
     }
@@ -278,6 +280,7 @@ public class CharacterController2D : MonoBehaviour
     private void UpdateAnimation()
     {
         animator.SetBool(animatorBurningBool, isBurning);
+        animator.SetBool(animatorGlidingBool, isGliding);
 
         animator.runtimeAnimatorController = faceRight? AspenRight : AspenLeft;
 
