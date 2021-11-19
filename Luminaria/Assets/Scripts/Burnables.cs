@@ -10,15 +10,21 @@ public class Burnables : MonoBehaviour
     private bool hasPlayedClip = false;
     private bool hasDepleted = false;
     private bool hasBurned = false;
+    
+    ParticleSystem ps;
+    Light2D lt;
+    EdgeCollider2D barrier;
     AudioSource soundClip;
-    GameObject fire;
 
     public void Start()
     {
-        GameObject fire = transform.GetChild(1).transform.GetChild(0).gameObject;
-        fire.GetComponent<ParticleSystem> ().GetComponent<Renderer> ().sortingLayerName = "Foreground";
-        fire.GetComponent<ParticleSystem> ().GetComponent<Renderer> ().sortingOrder = 21;
+        ps = GetComponentInChildren<ParticleSystem>(true);
+        lt = GetComponentInChildren<Light2D>(true);
+        barrier = GetComponentInChildren<EdgeCollider2D>();
         soundClip = GetComponent<AudioSource>();
+
+        ps.GetComponent<Renderer>().sortingLayerName = "Foreground";
+        ps.GetComponent<Renderer>().sortingOrder = 21;
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -50,8 +56,9 @@ public class Burnables : MonoBehaviour
     {
         if (!hasPlayedClip) {
             soundClip.Play();
-            transform.GetChild(1).gameObject.SetActive(true);   // fire element
-            transform.GetChild(2).gameObject.SetActive(true);   // fire light
+            ps.gameObject.SetActive(true);      // fire element
+            ps.Play();
+            lt.gameObject.SetActive(true);      // fire light
             hasPlayedClip = true;
         }
 
@@ -68,12 +75,19 @@ public class Burnables : MonoBehaviour
             Color c = GetComponent<SpriteRenderer>().color;
             c.a = ft;
             GetComponent<SpriteRenderer>().color = c;
-            transform.GetChild(2).gameObject.GetComponent<Light2D>().intensity = 3*ft;
+
+            lt.intensity = 3*ft;
+
             yield return new WaitForSeconds(.15f);
         }
 
-        transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Stop();
-        Destroy(transform.GetChild(2).gameObject);           // fire light
-        Destroy(transform.GetChild(0).gameObject);           // edge collider (barrier)
+        ps.Stop();
+
+        Color c = GetComponent<SpriteRenderer>().color;
+        c.a = 0f;
+        GetComponent<SpriteRenderer>().color = c;
+
+        Destroy(lt.gameObject);
+        Destroy(barrier.gameObject);
     }
 }
