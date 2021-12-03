@@ -6,6 +6,7 @@ TagManager:
   tags:
   - burnable
   - Aspen
+  - Light
   layers:
   - Default
   - TransparentFX
