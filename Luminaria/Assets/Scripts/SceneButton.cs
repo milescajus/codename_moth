@@ -18,11 +18,11 @@ public class SceneButton : MonoBehaviour, IPointerEnterHandler
     //    SceneManager.LoadScene("Credit");
     //}
 
-    public void exitGame()
-    {
-        Application.Quit();
-        Debug.Log("Exit the Game");
-    }
+    //public void exitGame()
+    //{
+    //    Application.Quit();
+    //    Debug.Log("Exit the Game");
+    //}
 
     public void backToMain()
     {

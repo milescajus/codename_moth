@@ -1522,8 +1522,8 @@ MonoBehaviour:
   - {fileID: 353030487}
   - {fileID: 1141480708}
   m_Bounds:
-    m_Center: {x: -0.72618675, y: -1.4419346, z: -0.0000036490746}
-    m_Extent: {x: 5.5561867, y: 5.137165, z: 2.2737368e-13}
+    m_Center: {x: -0.7261882, y: -1.4419346, z: -0.0000034106524}
+    m_Extent: {x: 5.5561857, y: 5.137165, z: 3.410605e-13}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -25021,8 +25021,8 @@ MonoBehaviour:
   - {fileID: 583766963}
   - {fileID: 867104275}
   m_Bounds:
-    m_Center: {x: -1.2727746, y: 0.1863966, z: 0.000009327204}
-    m_Extent: {x: 1.7202321, y: 5.312603, z: 9.094947e-13}
+    m_Center: {x: -1.2727746, y: 0.18639612, z: 0.000009804042}
+    m_Extent: {x: 1.7202321, y: 5.312603, z: 4.5474735e-13}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -68122,7 +68122,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165141421}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.31, y: 3.79, z: 0}
+  m_LocalPosition: {x: 0.31, y: 3.49, z: 0}
   m_LocalScale: {x: 0.66726524, y: 0.60053873, z: 0.66726524}
   m_Children: []
   m_Father: {fileID: 598954406}
