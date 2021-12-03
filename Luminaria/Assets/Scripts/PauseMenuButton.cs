@@ -30,11 +30,11 @@ public class PauseMenuButton : MonoBehaviour
 
     public void OpenKeys()
     {
-        if (PauseMenu.menuPanel.activeInHierarchy)
+        if (PauseMenu.menuPanel.activeInHierarchy   )
         {
             PauseMenu.menuPanel.SetActive(false);
+            PauseMenu.keyGuidePanel.SetActive(true);
         }
-        PauseMenu.keyGuidePanel.SetActive(true);
     }
 
     public void ReturnToMenu()
