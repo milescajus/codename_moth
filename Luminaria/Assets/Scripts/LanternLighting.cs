@@ -5,12 +5,11 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class LanternLighting : MonoBehaviour
 {
-    public GameObject myLight;
     [SerializeField] private Light2D light;
     // Start is called before the first frame update
     void Start()
     {
-         light = myLight.GetComponent<Light2D>();
+         light = gameObject.GetComponentInChildren<Light2D>();
          light.enabled = false;
     }
 
