@@ -11,7 +11,7 @@ public class Burnables : MonoBehaviour
     private bool hasDepleted = false;
     private bool hasBurned = false;
     
-    ParticleSystem ps;
+    [SerializeField] private ParticleSystem ps;
     Light2D lt;
     EdgeCollider2D barrier;
     AudioSource soundClip;
@@ -57,6 +57,7 @@ public class Burnables : MonoBehaviour
         if (!hasPlayedClip) {
             soundClip.Play();
             ps.gameObject.transform.parent.gameObject.SetActive(true);      // fire element
+	    ps.Play();
             lt.gameObject.SetActive(true);      // fire light
             hasPlayedClip = true;
         }

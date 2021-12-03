@@ -1358,8 +1358,8 @@ MonoBehaviour:
   - {fileID: 353030487}
   - {fileID: 1141480708}
   m_Bounds:
-    m_Center: {x: -0.7261882, y: -1.4419346, z: -0.0000034106524}
-    m_Extent: {x: 5.5561857, y: 5.137165, z: 3.410605e-13}
+    m_Center: {x: -0.72618675, y: -1.4419346, z: -0.0000036490746}
+    m_Extent: {x: 5.5561867, y: 5.137165, z: 2.2737368e-13}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -5078,8 +5078,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241980316}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 121, y: -0.217, z: 0}
-  m_LocalScale: {x: 1.8871, y: 1.8871, z: 1.8871}
+  m_LocalPosition: {x: 120.15, y: -1.06, z: 0}
+  m_LocalScale: {x: 7.1008134, y: 7.1008134, z: 7.1008134}
   m_Children: []
   m_Father: {fileID: 1634641706}
   m_RootOrder: 0
@@ -5125,7 +5125,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1950422495
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 20
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -5160,7 +5160,7 @@ ParticleSystem:
   m_GameObject: {fileID: 241980316}
   serializedVersion: 8
   lengthInSec: 2
-  simulationSpeed: 0.6
+  simulationSpeed: 0.5
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -5168,7 +5168,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 1
   prewarm: 1
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -10423,8 +10423,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260120404}
   m_LocalRotation: {x: 0, y: 0, z: 0.5583968, w: 0.82957405}
-  m_LocalPosition: {x: 0, y: -0.56, z: -0}
-  m_LocalScale: {x: 2.1879334, y: 2.1879334, z: 2.1879334}
+  m_LocalPosition: {x: 120.46, y: -0.18, z: -0}
+  m_LocalScale: {x: 5.9412417, y: 5.9412417, z: 5.9412417}
   m_Children: []
   m_Father: {fileID: 1634641706}
   m_RootOrder: 1
@@ -10470,7 +10470,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1950422495
   m_SortingLayer: 1
-  m_SortingOrder: 2
+  m_SortingOrder: 21
   m_RenderMode: 1
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -17674,12 +17674,12 @@ PrefabInstance:
     - target: {fileID: 4401863854545358135, guid: 6cfaadcb953af1c448a1b82b94f47442,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -58.5758
+      value: 42.124195
       objectReference: {fileID: 0}
     - target: {fileID: 4401863854545358135, guid: 6cfaadcb953af1c448a1b82b94f47442,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.25874162
+      value: 11.291259
       objectReference: {fileID: 0}
     - target: {fileID: 4401863854545358135, guid: 6cfaadcb953af1c448a1b82b94f47442,
         type: 3}
@@ -17769,12 +17769,12 @@ PrefabInstance:
     - target: {fileID: 4401863856316295334, guid: 6cfaadcb953af1c448a1b82b94f47442,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -58.5758
+      value: 42.124195
       objectReference: {fileID: 0}
     - target: {fileID: 4401863856316295334, guid: 6cfaadcb953af1c448a1b82b94f47442,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.25874162
+      value: 11.291259
       objectReference: {fileID: 0}
     - target: {fileID: 4401863856316295334, guid: 6cfaadcb953af1c448a1b82b94f47442,
         type: 3}
@@ -24523,8 +24523,8 @@ MonoBehaviour:
   - {fileID: 583766963}
   - {fileID: 867104275}
   m_Bounds:
-    m_Center: {x: -1.2727746, y: 0.18639612, z: 0.000009804042}
-    m_Extent: {x: 1.7202321, y: 5.312603, z: 4.5474735e-13}
+    m_Center: {x: -1.2727746, y: 0.1863966, z: 0.000009327204}
+    m_Extent: {x: 1.7202321, y: 5.312603, z: 9.094947e-13}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -52159,6 +52159,7 @@ MonoBehaviour:
   triggerActive: 0
   Aspen: {fileID: 7906095724789732454}
   ChargeCost: 1
+  ps: {fileID: 0}
 --- !u!61 &883087208
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -78497,7 +78498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1508385990
 RectTransform:
   m_ObjectHideFlags: 0
@@ -105047,12 +105048,12 @@ PrefabInstance:
     - target: {fileID: 7906095723340371965, guid: 21c18efccfb014049bdf0988134a95ce,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12
+      value: 88.7
       objectReference: {fileID: 0}
     - target: {fileID: 7906095723340371965, guid: 21c18efccfb014049bdf0988134a95ce,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.75
+      value: 10.8
       objectReference: {fileID: 0}
     - target: {fileID: 7906095723340371965, guid: 21c18efccfb014049bdf0988134a95ce,
         type: 3}
