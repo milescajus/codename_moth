@@ -46148,7 +46148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerActive: 0
   Aspen: {fileID: 7906095724789732454}
-  ChargeCost: 1
+  ChargeCost: 3
   ps: {fileID: 0}
 --- !u!61 &883087208
 BoxCollider2D:
