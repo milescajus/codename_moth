@@ -7,6 +7,7 @@ public class Endpoint : MonoBehaviour
     [SerializeField] private bool triggerActive = false;
     [SerializeField] public CharacterController2D Aspen;
     [SerializeField] private int ChargeCost = 1;
+    [SerializeField] private string nextScene;
     private bool hasPlayedClip = false;
     private bool leave = false;
     AudioSource soundClip;
@@ -48,7 +49,7 @@ public class Endpoint : MonoBehaviour
         while(true) {
             yield return new WaitForSeconds(2);
             if (leave) {
-                SceneManager.LoadScene("CreditScene");
+                SceneManager.LoadScene(nextScene);
             }
         }
     }
