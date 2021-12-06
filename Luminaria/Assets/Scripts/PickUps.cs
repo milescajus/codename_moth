@@ -26,10 +26,10 @@ public class PickUps : MonoBehaviour
                 Aspen.chargeLevel += 1;
             }
 
-            //else if (gameObject.CompareTag(""))
-            //{
-
-            //}
+            else if (gameObject.CompareTag("KeyStone"))
+            {
+                LevelEndManger.totalNumofStone--;
+            }
 
             Destroy(gameObject);
         }
