@@ -27,8 +27,10 @@ public class LanternLighting : MonoBehaviour
         
         if (other.gameObject.CompareTag("Aspen"))
         {
-            light.enabled = true;
-            StartCoroutine(FadeIn());
+            if (light.enabled == false) {
+                light.enabled = true;
+                StartCoroutine(FadeIn());
+            }
         }
     }
 
