@@ -5,7 +5,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class LanternLighting : MonoBehaviour
 {
-    [SerializeField] private Light2D light;
+    new private Light2D light;
     // Start is called before the first frame update
     void Start()
     {

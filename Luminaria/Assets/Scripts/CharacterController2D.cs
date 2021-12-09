@@ -20,7 +20,7 @@ public class CharacterController2D : MonoBehaviour
 
     [Header("Character")]
     [SerializeField] Animator animator = null;
-    [SerializeField] Transform puppet = null;
+    [SerializeField] Transform transform = null;
     [SerializeField] CharacterAudio audioPlayer = null;
 
     [Header("Equipment")]
