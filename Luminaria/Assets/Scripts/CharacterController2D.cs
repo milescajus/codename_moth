@@ -71,8 +71,11 @@ public class CharacterController2D : MonoBehaviour
     // Staff Charge Variables
     private Transform StaffFX;
     private ParticleSystem ps;
+    private ParticleSystem.MainModule main;
+    private ParticleSystem.EmissionModule em;
     private Light2D lt;
     public int chargeLevel = 0;
+    public int prevCharge = 0;
 
     public bool CanMove { get; set; }
 
@@ -114,6 +117,8 @@ public class CharacterController2D : MonoBehaviour
         CanMove = true;
 
         ps = GetComponentInChildren<ParticleSystem>(true);
+        main = ps.main;
+        em = ps.emission;
         StaffFX = ps.gameObject.transform.parent;
         lt = StaffFX.GetComponentInChildren<Light2D>(true);
         StartCoroutine(UpdateStaffCharge());
@@ -172,9 +177,19 @@ public class CharacterController2D : MonoBehaviour
 
         // Debug Charging
         if (keyboard.cKey.wasPressedThisFrame)
-            chargeLevel++;
+            AddCharge();
         if (keyboard.xKey.wasPressedThisFrame)
-            chargeLevel--;
+            RemoveCharge();
+    }
+
+    void AddCharge()
+    {
+        prevCharge = chargeLevel++;
+    }
+
+    void RemoveCharge()
+    {
+        prevCharge = chargeLevel--;
     }
 
     void FixedUpdate()
@@ -190,12 +205,19 @@ public class CharacterController2D : MonoBehaviour
 
     private IEnumerator UpdateStaffCharge()
     {
+        float increment = prevCharge < chargeLevel ? 0.1f : -0.1f;
+        float ft = prevCharge;
+
+        // for (float ft = prevCharge; ft != chargeLevel; ft += increment) {
         while(true) {
-            yield return new WaitForSeconds(1.0f);
-            var main = ps.main;
+            if (prevCharge != chargeLevel) {
+                ft += increment;
+                yield return new WaitForSeconds(.15f);
+            }
             main.maxParticles = 7 * chargeLevel;
             main.simulationSpeed = chargeLevel;
-            lt.intensity = chargeLevel;
+            em.rateOverTime = 3 * chargeLevel;
+            lt.intensity = ft;
         }
     }
 
