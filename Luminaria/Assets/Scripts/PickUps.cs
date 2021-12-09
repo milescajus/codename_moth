@@ -19,15 +19,13 @@ public class PickUps : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Aspen"))
-        {
-            if (gameObject.CompareTag("ChargeParticle") && Aspen.chargeLevel < 3)
-            {
-                Aspen.chargeLevel += 1;
+        if (other.gameObject.CompareTag("Aspen")) {
+
+            if (gameObject.CompareTag("ChargeParticle")) {
+                Aspen.UpdateCharge(1);
             }
 
-            else if (gameObject.CompareTag("KeyStone"))
-            {
+            else if (gameObject.CompareTag("KeyStone")) {
                 LevelEndManger.totalNumofStone--;
             }
 

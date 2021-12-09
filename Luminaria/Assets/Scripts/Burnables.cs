@@ -43,7 +43,7 @@ public class Burnables : MonoBehaviour
 
     private void Update()
     {
-        if (triggerActive && Aspen.isBurning && (Aspen.chargeLevel != 0)) {
+        if (triggerActive && Aspen.isBurning && (Aspen.GetCharge() != 0)) {
             if (!hasBurned) {
                 StartCoroutine(IsBurning());
                 Burn();
@@ -63,7 +63,7 @@ public class Burnables : MonoBehaviour
         }
 
         if (!hasDepleted) {
-            Aspen.chargeLevel -= ChargeCost;
+            Aspen.UpdateCharge(-ChargeCost);
             hasDepleted = true;
         }
     }

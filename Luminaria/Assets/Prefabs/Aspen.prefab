@@ -664,7 +664,7 @@ ParticleSystem:
   m_GameObject: {fileID: 391409310}
   serializedVersion: 8
   lengthInSec: 2
-  simulationSpeed: 3
+  simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -738,7 +738,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 7
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1223,7 +1223,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 25
+    maxNumParticles: 0
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -1489,7 +1489,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 1
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -7136,8 +7136,6 @@ MonoBehaviour:
   AspenRight: {fileID: 22100000, guid: 2550dff1dce284647b44954c134fa4e8, type: 2}
   isBurning: 0
   faceRight: 0
-  chargeLevel: 0
-  prevCharge: 0
 --- !u!95 &7906095723340371958
 Animator:
   serializedVersion: 3

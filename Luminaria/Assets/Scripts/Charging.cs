@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Charging : MonoBehaviour
@@ -21,8 +22,18 @@ public class Charging : MonoBehaviour
 
     private void Update()
     {
-        if (triggerActive && Aspen.isBurning && (Aspen.chargeLevel < 3)) {
-            Aspen.chargeLevel = 3;
+        if (triggerActive && Aspen.isBurning) {
+            StartCoroutine(Charge());
+        } else {
+            StopCoroutine(Charge());
+        }
+    }
+
+    private IEnumerator Charge()
+    {
+        while(true) {
+            Aspen.UpdateCharge(1);
+            yield return new WaitForSeconds(0.2f);
         }
     }
 }

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Experimental.Rendering.Universal;
@@ -69,13 +68,14 @@ public class CharacterController2D : MonoBehaviour
     private int animatorGlidingBool;
 
     // Staff Charge Variables
-    private Transform StaffFX;
+    private int maxCharge = 3;
+    private int currentCharge;
+    private Light2D lt;
     private ParticleSystem ps;
     private ParticleSystem.MainModule main;
     private ParticleSystem.EmissionModule em;
-    private Light2D lt;
-    public int chargeLevel = 0;
-    public int prevCharge = 0;
+    private float prevCharge;
+    private float increment;
 
     public bool CanMove { get; set; }
 
@@ -117,11 +117,11 @@ public class CharacterController2D : MonoBehaviour
         CanMove = true;
 
         ps = GetComponentInChildren<ParticleSystem>(true);
+        lt = ps.gameObject.transform.parent.GetComponentInChildren<Light2D>(true);
         main = ps.main;
         em = ps.emission;
-        StaffFX = ps.gameObject.transform.parent;
-        lt = StaffFX.GetComponentInChildren<Light2D>(true);
-        StartCoroutine(UpdateStaffCharge());
+        currentCharge = 0;
+        UpdateCharge(0);
     }
 
     void Update()
@@ -177,20 +177,40 @@ public class CharacterController2D : MonoBehaviour
 
         // Debug Charging
         if (keyboard.cKey.wasPressedThisFrame)
-            AddCharge();
+            UpdateCharge(1);
         if (keyboard.xKey.wasPressedThisFrame)
-            RemoveCharge();
+            UpdateCharge(-1);
     }
 
-    void AddCharge()
+    private float bounds(float n, int lower, int upper)
     {
-        prevCharge = chargeLevel++;
+        if (n < lower) return lower;
+        if (n > upper) return upper;
+        return n;
     }
 
-    void RemoveCharge()
+    public void UpdateCharge(int n)
     {
-        prevCharge = chargeLevel--;
+        prevCharge = (float) currentCharge;
+        currentCharge = (int) bounds(currentCharge + n, 0, maxCharge);
+
+        main.maxParticles = 7 * currentCharge;
+        em.rateOverTime = 3 * currentCharge;
+
+        StartCoroutine(FadeCharge());
     }
+
+    private IEnumerator FadeCharge()
+    {
+        while (prevCharge != currentCharge) {
+            main.simulationSpeed = prevCharge + 1;
+            lt.intensity = prevCharge;
+            prevCharge += prevCharge < currentCharge ? 0.1f : -0.1f;
+            yield return new WaitForSeconds(.1f);
+        }
+    }
+
+    public int GetCharge() { return currentCharge; }
 
     void FixedUpdate()
     {
@@ -201,24 +221,6 @@ public class CharacterController2D : MonoBehaviour
         UpdateGravityScale();
 
         prevVelocity = controllerRigidbody.velocity;
-    }
-
-    private IEnumerator UpdateStaffCharge()
-    {
-        float increment = prevCharge < chargeLevel ? 0.1f : -0.1f;
-        float ft = prevCharge;
-
-        // for (float ft = prevCharge; ft != chargeLevel; ft += increment) {
-        while(true) {
-            if (prevCharge != chargeLevel) {
-                ft += increment;
-                yield return new WaitForSeconds(.15f);
-            }
-            main.maxParticles = 7 * chargeLevel;
-            main.simulationSpeed = chargeLevel;
-            em.rateOverTime = 3 * chargeLevel;
-            lt.intensity = ft;
-        }
     }
 
     private void UpdateGrounding()
