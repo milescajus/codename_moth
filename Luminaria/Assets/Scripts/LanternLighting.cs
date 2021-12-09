@@ -6,11 +6,13 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class LanternLighting : MonoBehaviour
 {
     new private Light2D light;
+    private float maxIntensity;
     // Start is called before the first frame update
     void Start()
     {
          light = gameObject.GetComponentInChildren<Light2D>();
          light.enabled = false;
+         maxIntensity = light.intensity;
     }
 
 
@@ -26,6 +28,15 @@ public class LanternLighting : MonoBehaviour
         if (other.gameObject.CompareTag("Aspen"))
         {
             light.enabled = true;
+            StartCoroutine(FadeIn());
+        }
+    }
+
+    private IEnumerator FadeIn()
+    {
+        for (float ft = 0; ft < maxIntensity; ft += 0.1f) {
+            light.intensity = ft;
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }
