@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Experimental.Rendering.Universal;
 
 using UnityEngine.InputSystem;
 
@@ -20,7 +21,7 @@ public class CharacterController2D : MonoBehaviour
 
     [Header("Character")]
     [SerializeField] Animator animator = null;
-    [SerializeField] Transform transform = null;
+    [SerializeField] new Transform transform;
     [SerializeField] CharacterAudio audioPlayer = null;
 
     [Header("Equipment")]
@@ -67,13 +68,16 @@ public class CharacterController2D : MonoBehaviour
     private int animatorBurningBool;
     private int animatorGlidingBool;
 
+    // Staff Charge Variables
+    private Transform StaffFX;
+    private ParticleSystem ps;
+    private Light2D lt;
     public int chargeLevel = 0;
 
     public bool CanMove { get; set; }
 
     void Start()
     {
-        StartCoroutine(UpdateStaffCharge());
 #if UNITY_EDITOR
         if (Keyboard.current == null)
         {
@@ -108,6 +112,11 @@ public class CharacterController2D : MonoBehaviour
         animatorGlidingBool = Animator.StringToHash("Gliding");
 
         CanMove = true;
+
+        ps = GetComponentInChildren<ParticleSystem>(true);
+        StaffFX = ps.gameObject.transform.parent;
+        lt = StaffFX.GetComponentInChildren<Light2D>(true);
+        StartCoroutine(UpdateStaffCharge());
     }
 
     void Update()
@@ -163,7 +172,9 @@ public class CharacterController2D : MonoBehaviour
 
         // Debug Charging
         if (keyboard.cKey.wasPressedThisFrame)
-            chargeLevel = 3;
+            chargeLevel++;
+        if (keyboard.xKey.wasPressedThisFrame)
+            chargeLevel--;
     }
 
     void FixedUpdate()
@@ -181,15 +192,10 @@ public class CharacterController2D : MonoBehaviour
     {
         while(true) {
             yield return new WaitForSeconds(1.0f);
-
-            var levels = new HashSet<int> {2, 3, 4, 5};
-
-            transform.GetChild(chargeLevel).gameObject.SetActive(true);
-            levels.Remove(chargeLevel);
-
-            foreach (int n in levels) {
-                transform.GetChild(n).gameObject.SetActive(false);
-            }
+            var main = ps.main;
+            main.maxParticles = 7 * chargeLevel;
+            main.simulationSpeed = chargeLevel;
+            lt.intensity = chargeLevel;
         }
     }
 
