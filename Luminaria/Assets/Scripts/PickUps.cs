@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickUps : MonoBehaviour
 {
-    [SerializeField] public CharacterController2D Aspen;
+    [SerializeField] private CharacterController2D Aspen;
     // Start is called before the first frame update
     void Start()
     {
