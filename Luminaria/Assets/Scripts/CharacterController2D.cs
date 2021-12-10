@@ -197,15 +197,27 @@ public class CharacterController2D : MonoBehaviour
         main.maxParticles = 7 * currentCharge;
         em.rateOverTime = 3 * currentCharge;
 
-        StartCoroutine(FadeCharge());
+        if (prevCharge < currentCharge) {
+            StartCoroutine(FadeUp());
+        } else {
+            StartCoroutine(FadeDown());
+        }
     }
 
-    private IEnumerator FadeCharge()
+    private IEnumerator FadeUp()
     {
-        while (prevCharge != currentCharge) {
-            main.simulationSpeed = prevCharge + 1;
-            lt.intensity = prevCharge;
-            prevCharge += prevCharge < currentCharge ? 0.1f : -0.1f;
+        for (float ft = prevCharge; ft < currentCharge; ft += 0.1f) {
+            main.simulationSpeed = ft + 1;
+            lt.intensity = ft;
+            yield return new WaitForSeconds(.1f);
+        }
+    }
+
+    private IEnumerator FadeDown()
+    {
+        for (float ft = prevCharge; ft >= currentCharge; ft -= 0.1f) {
+            main.simulationSpeed = ft + 1;
+            lt.intensity = ft;
             yield return new WaitForSeconds(.1f);
         }
     }

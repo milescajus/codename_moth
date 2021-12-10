@@ -7,8 +7,6 @@ public class Burnables : MonoBehaviour
     [SerializeField] private bool triggerActive = false;
     [SerializeField] public CharacterController2D Aspen;
     [SerializeField] private int ChargeCost = 1;
-    private bool hasPlayedClip = false;
-    private bool hasDepleted = false;
     private bool hasBurned = false;
     
     [SerializeField] private ParticleSystem ps;
@@ -45,26 +43,14 @@ public class Burnables : MonoBehaviour
     {
         if (triggerActive && Aspen.isBurning && (Aspen.GetCharge() != 0)) {
             if (!hasBurned) {
-                StartCoroutine(IsBurning());
-                Burn();
                 hasBurned = true;
+                StartCoroutine(IsBurning());
+                soundClip.Play();
+                ps.gameObject.transform.parent.gameObject.SetActive(true);      // fire element
+                ps.Play();
+                lt.gameObject.SetActive(true);      // fire light
+                Aspen.UpdateCharge(-ChargeCost);
             }
-        }
-    }
-
-    private void Burn()
-    {
-        if (!hasPlayedClip) {
-            soundClip.Play();
-            ps.gameObject.transform.parent.gameObject.SetActive(true);      // fire element
-	    ps.Play();
-            lt.gameObject.SetActive(true);      // fire light
-            hasPlayedClip = true;
-        }
-
-        if (!hasDepleted) {
-            Aspen.UpdateCharge(-ChargeCost);
-            hasDepleted = true;
         }
     }
 
