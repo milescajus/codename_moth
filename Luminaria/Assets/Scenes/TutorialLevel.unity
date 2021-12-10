@@ -92135,6 +92135,10 @@ PrefabInstance:
       propertyPath: Aspen
       value: 
       objectReference: {fileID: 7906095724789732454}
+    - target: {fileID: 508463570, guid: 40c9d8cc46c0c4011bd50badbb80d2c0, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1913295329594244363, guid: 40c9d8cc46c0c4011bd50badbb80d2c0,
         type: 3}
       propertyPath: m_Name
