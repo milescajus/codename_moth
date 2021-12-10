@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6524128806638113801}
   - component: {fileID: 6524128806638113800}
   m_Layer: 0
-  m_Name: TempCharge
+  m_Name: LightOrb
   m_TagString: ChargeParticle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 6524128806638113807}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -9.772954, y: -10.01549, z: 20.011715}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 91764dfddf7f89742864c4fa84f6907d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c3251b0b01e41412f9464edea866a584, type: 3}
   m_Color: {r: 1, g: 0.61900264, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,9 +98,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.048535824, y: 0.06755805}
   serializedVersion: 2
-  m_Radius: 3.06
+  m_Radius: 1.3425925
 --- !u!114 &6524128806638113800
 MonoBehaviour:
   m_ObjectHideFlags: 0
