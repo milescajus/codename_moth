@@ -15073,6 +15073,11 @@ PrefabInstance:
       propertyPath: m_ApplyToSortingLayers.Array.data[0]
       value: 1950422495
       objectReference: {fileID: 0}
+    - target: {fileID: 6524128806638113800, guid: 4c34360417c55664ab853d52c1d3e83b,
+        type: 3}
+      propertyPath: aspenObject
+      value: 
+      objectReference: {fileID: 7906095724789732454}
     - target: {fileID: 6524128806638113803, guid: 4c34360417c55664ab853d52c1d3e83b,
         type: 3}
       propertyPath: m_RootOrder
@@ -18792,6 +18797,11 @@ PrefabInstance:
       propertyPath: Aspen
       value: 
       objectReference: {fileID: 7906095724789732454}
+    - target: {fileID: 4083364990523508604, guid: ca20e6dfe9a0c9c4d9426db3c90051bb,
+        type: 3}
+      propertyPath: aspenObject
+      value: 
+      objectReference: {fileID: 7906095724789732454}
     - target: {fileID: 4083364990523508606, guid: ca20e6dfe9a0c9c4d9426db3c90051bb,
         type: 3}
       propertyPath: m_SortingOrder
@@ -18800,7 +18810,7 @@ PrefabInstance:
     - target: {fileID: 4083364990523508607, guid: ca20e6dfe9a0c9c4d9426db3c90051bb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4083364990523508607, guid: ca20e6dfe9a0c9c4d9426db3c90051bb,
         type: 3}
@@ -39448,9 +39458,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e0067dd1c968df7906ab86a3bd5a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerActive: 0
   Aspen: {fileID: 7906095724789732454}
-  ChargeCost: 1
+  triggerActive: 0
+  chargeCost: 1
 --- !u!61 &883087208
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40752,6 +40762,11 @@ PrefabInstance:
       propertyPath: m_ApplyToSortingLayers.Array.data[0]
       value: 1950422495
       objectReference: {fileID: 0}
+    - target: {fileID: 6524128806638113800, guid: 4c34360417c55664ab853d52c1d3e83b,
+        type: 3}
+      propertyPath: aspenObject
+      value: 
+      objectReference: {fileID: 7906095724789732454}
     - target: {fileID: 6524128806638113803, guid: 4c34360417c55664ab853d52c1d3e83b,
         type: 3}
       propertyPath: m_RootOrder
@@ -42834,6 +42849,11 @@ PrefabInstance:
       propertyPath: Aspen
       value: 
       objectReference: {fileID: 7906095724789732454}
+    - target: {fileID: 4083364990523508604, guid: ca20e6dfe9a0c9c4d9426db3c90051bb,
+        type: 3}
+      propertyPath: aspenObject
+      value: 
+      objectReference: {fileID: 7906095724789732454}
     - target: {fileID: 4083364990523508606, guid: ca20e6dfe9a0c9c4d9426db3c90051bb,
         type: 3}
       propertyPath: m_SortingOrder
@@ -42842,7 +42862,7 @@ PrefabInstance:
     - target: {fileID: 4083364990523508607, guid: ca20e6dfe9a0c9c4d9426db3c90051bb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4083364990523508607, guid: ca20e6dfe9a0c9c4d9426db3c90051bb,
         type: 3}
@@ -54687,6 +54707,11 @@ PrefabInstance:
       propertyPath: Aspen
       value: 
       objectReference: {fileID: 7906095724789732454}
+    - target: {fileID: 4083364990523508604, guid: ca20e6dfe9a0c9c4d9426db3c90051bb,
+        type: 3}
+      propertyPath: aspenObject
+      value: 
+      objectReference: {fileID: 7906095724789732454}
     - target: {fileID: 4083364990523508606, guid: ca20e6dfe9a0c9c4d9426db3c90051bb,
         type: 3}
       propertyPath: m_SortingOrder
@@ -54695,7 +54720,7 @@ PrefabInstance:
     - target: {fileID: 4083364990523508607, guid: ca20e6dfe9a0c9c4d9426db3c90051bb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4083364990523508607, guid: ca20e6dfe9a0c9c4d9426db3c90051bb,
         type: 3}
@@ -54868,8 +54893,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c30e346e17d2361f82bb9ad9d06ed2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerActive: 0
   Aspen: {fileID: 7906095724789732454}
+  triggerActive: 0
 --- !u!61 &1284182167
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -65745,6 +65770,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1268775685}
     m_Modifications:
+    - target: {fileID: 6524128806638113800, guid: 4c34360417c55664ab853d52c1d3e83b,
+        type: 3}
+      propertyPath: aspenObject
+      value: 
+      objectReference: {fileID: 7906095724789732454}
     - target: {fileID: 6524128806638113803, guid: 4c34360417c55664ab853d52c1d3e83b,
         type: 3}
       propertyPath: m_RootOrder
@@ -78899,6 +78929,11 @@ PrefabInstance:
       propertyPath: Aspen
       value: 
       objectReference: {fileID: 7906095724789732454}
+    - target: {fileID: 4083364990523508604, guid: ca20e6dfe9a0c9c4d9426db3c90051bb,
+        type: 3}
+      propertyPath: aspenObject
+      value: 
+      objectReference: {fileID: 7906095724789732454}
     - target: {fileID: 4083364990523508606, guid: ca20e6dfe9a0c9c4d9426db3c90051bb,
         type: 3}
       propertyPath: m_SortingOrder
@@ -78907,7 +78942,7 @@ PrefabInstance:
     - target: {fileID: 4083364990523508607, guid: ca20e6dfe9a0c9c4d9426db3c90051bb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4083364990523508607, guid: ca20e6dfe9a0c9c4d9426db3c90051bb,
         type: 3}

@@ -6,7 +6,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class PickUps : MonoBehaviour
 {
     [Header("Aspen")]
-    [SerializeField] CharacterController2D Aspen;
+    [SerializeField] CharacterController2D aspenObject;
     [SerializeField] int chargeValue = 0;
 
     // Scaling
@@ -78,15 +78,11 @@ public class PickUps : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Aspen")) {
-
-            if (gameObject.CompareTag("LightOrb")) {
-                Aspen.currentCharge += chargeValue;
-            }
-
-            else if (gameObject.CompareTag("KeyStone")) {
+            if (gameObject.CompareTag("KeyStone")) {
                 LevelEndManger.totalNumofStone--;
             }
 
+            aspenObject.currentCharge += chargeValue;
             StartCoroutine(Collect());
         }
     }
