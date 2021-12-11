@@ -7,7 +7,7 @@ public class LanternLighting : MonoBehaviour
 {
     new private Light2D light;
     private float maxIntensity;
-    // Start is called before the first frame update
+
     void Start()
     {
          light = gameObject.GetComponentInChildren<Light2D>();
@@ -15,18 +15,9 @@ public class LanternLighting : MonoBehaviour
          maxIntensity = light.intensity;
     }
 
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnTriggerEnter2D(Collider2D other)
     {
-        
-        if (other.gameObject.CompareTag("Aspen"))
-        {
+        if (other.gameObject.CompareTag("Aspen")) {
             if (light.enabled == false) {
                 light.enabled = true;
                 StartCoroutine(FadeIn());
