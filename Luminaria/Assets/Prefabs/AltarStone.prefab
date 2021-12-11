@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e8fe58b42a75d248ba6fce3dac1c8d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Aspen: {fileID: 0}
+  aspenObject: {fileID: 0}
   chargeValue: 0
   pulseRate: 0.03
   rotateFactor: 1
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 1
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 0.6
   m_Color: {r: 0.43867922, g: 0.9303616, b: 1, a: 1}
   m_Intensity: 0.46
   m_LightVolumeIntensity: 1
