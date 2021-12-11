@@ -7129,13 +7129,11 @@ MonoBehaviour:
   fallGravityScale: 5
   groundedGravityScale: 1
   resetSpeedOnLand: 0
-  test:
-    m_PersistentCalls:
-      m_Calls: []
   AspenLeft: {fileID: 22100000, guid: 9001cb7778ac53e41b1fdef91b2b7eeb, type: 2}
   AspenRight: {fileID: 22100000, guid: 2550dff1dce284647b44954c134fa4e8, type: 2}
   isBurning: 0
-  faceRight: 0
+  currentCharge: 97
+  maxCharge: 3
 --- !u!95 &7906095723340371958
 Animator:
   serializedVersion: 3
