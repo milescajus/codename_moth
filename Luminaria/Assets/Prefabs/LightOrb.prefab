@@ -913,7 +913,7 @@ MonoBehaviour:
   pulseRate: 0.03
   rotateFactor: 1
   scaleAmp: 0.05
-  glowAmp: 0.5
+  glowAmp: 0.4
   rotate: 1
   scale: 1
   glow: 1
