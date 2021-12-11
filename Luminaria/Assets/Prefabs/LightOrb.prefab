@@ -619,7 +619,7 @@ Transform:
   m_GameObject: {fileID: 6524128806638113807}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.772954, y: -10.01549, z: 20.011715}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.37, y: 0.37, z: 0.3}
   m_Children:
   - {fileID: 7237585164992659295}
   m_Father: {fileID: 0}
@@ -707,6 +707,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Aspen: {fileID: 7906095723340371953, guid: 21c18efccfb014049bdf0988134a95ce, type: 3}
   chargeValue: 1
+  pulseRate: 0.03
+  rotateFactor: 1
+  scaleAmp: 0.05
+  glowAmp: 0.5
+  rotate: 1
+  scale: 1
+  glow: 1
 --- !u!95 &4652484742539852749
 Animator:
   serializedVersion: 3

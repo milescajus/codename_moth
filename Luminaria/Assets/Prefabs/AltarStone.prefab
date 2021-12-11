@@ -116,6 +116,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Aspen: {fileID: 0}
+  chargeValue: 0
+  pulseRate: 0.03
+  rotateFactor: 1
+  scaleAmp: 0.05
+  glowAmp: 0.5
+  rotate: 0
+  scale: 0
+  glow: 1
 --- !u!95 &5154447107927582491
 Animator:
   serializedVersion: 3

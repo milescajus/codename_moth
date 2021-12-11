@@ -5,36 +5,71 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class PickUps : MonoBehaviour
 {
+    [Header("Aspen")]
     [SerializeField] CharacterController2D Aspen;
-    [SerializeField] int chargeValue;
-    private Light2D lt;
+    [SerializeField] int chargeValue = 0;
+
+    // Scaling
+    private Vector3 initialScale;
+
+    // Lighting
     private SpriteRenderer r;
+    private Light2D lt;
+    private float initialIntensity;
+
+    // Collecting
     private Vector3 shrinkFactor;
-    private Vector3 rotateFactor;
+
+    [Header("Pulsing")]
+    [SerializeField] float pulseRate = 0.03f;
+    [SerializeField] float rotateFactor = 1.0f;
+    [SerializeField] float scaleAmp = 0.05f;
+    [SerializeField] float glowAmp = 0.5f;
+    [SerializeField] bool rotate = false;
+    [SerializeField] bool scale = false;
+    [SerializeField] bool glow = false;
+
+    private Vector3 rotateVect;
+    private double pulsePeriod;
     private float pulseTime;
-    private float pulsePeriod;
+    private Coroutine pulsing;
 
     void Start()
     {
         lt = GetComponentInChildren<Light2D>(true);
         r = GetComponent<SpriteRenderer>();
-        shrinkFactor = transform.localScale / 5;
-        rotateFactor = new Vector3(0, 0, -1.0f);
-        pulseTime = 0f;
-        pulsePeriod = 0.03f;
 
-        if (gameObject.CompareTag("LightOrb"))
-            StartCoroutine(Pulse());
+        initialIntensity = lt.intensity;
+        initialScale = transform.localScale;
+
+        shrinkFactor = initialScale / 5;
+        rotateVect = new Vector3(0, 0, rotateFactor);
+
+        pulseTime = 0f;
+        pulsePeriod = 2*Math.PI / pulseRate;
+
+        pulsing = StartCoroutine(Pulse());
     }
 
     private IEnumerator Pulse()
     {
-        while(true) {
-            transform.Rotate(rotateFactor);
+        // uses periodic function for smooth pulsing
 
-            float ft = (float) (0.37f + 0.05*Math.Sin(pulseTime));       // periodic function for smooth pulsing
-            transform.localScale = new Vector3(ft, ft, ft);
-            pulseTime += pulsePeriod;
+        while(true) {
+            float scaleFactor = (float) (initialScale.x + scaleAmp*Math.Sin(pulseTime));
+            float glowFactor = (float) (initialIntensity + glowAmp*Math.Sin(pulseTime));
+
+            if (rotate)
+                transform.Rotate(-rotateVect);
+            if (scale)
+                transform.localScale = new Vector3(scaleFactor, scaleFactor);
+            if (glow)
+                lt.intensity = glowFactor;
+
+            if (pulseTime == pulsePeriod)
+                pulseTime = 0f;
+            else
+                pulseTime += pulseRate;
 
             yield return null;
         }
@@ -58,6 +93,8 @@ public class PickUps : MonoBehaviour
 
     private IEnumerator Collect()
     {
+        StopCoroutine(pulsing);
+
         for (float ft = lt.intensity; ft < 6; ft += 0.8f) {
             if (lt != null)
                 lt.intensity = ft;
