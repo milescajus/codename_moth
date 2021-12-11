@@ -1,14 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PickUps : MonoBehaviour
 {
-    [SerializeField] private CharacterController2D Aspen;
+    [SerializeField] CharacterController2D Aspen;
+    [SerializeField] int chargeValue;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -22,7 +22,7 @@ public class PickUps : MonoBehaviour
         if (other.gameObject.CompareTag("Aspen")) {
 
             if (gameObject.CompareTag("ChargeParticle")) {
-                Aspen.currentCharge++;
+                Aspen.currentCharge += chargeValue;
             }
 
             else if (gameObject.CompareTag("KeyStone")) {

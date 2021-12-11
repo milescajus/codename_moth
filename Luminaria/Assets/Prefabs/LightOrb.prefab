@@ -706,6 +706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Aspen: {fileID: 7906095723340371953, guid: 21c18efccfb014049bdf0988134a95ce, type: 3}
+  chargeValue: 1
 --- !u!95 &4652484742539852749
 Animator:
   serializedVersion: 3

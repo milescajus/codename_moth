@@ -4,9 +4,9 @@ using System.Collections;
 
 public class Burnables : MonoBehaviour
 {
-    [SerializeField] private bool triggerActive = false;
-    [SerializeField] public CharacterController2D Aspen;
-    [SerializeField] private int ChargeCost = 1;
+    [SerializeField] CharacterController2D Aspen;
+    [SerializeField] bool triggerActive = false;
+    [SerializeField] int chargeCost = 1;
 
     private bool hasBurned = false;
     private ParticleSystem ps;
@@ -50,10 +50,10 @@ public class Burnables : MonoBehaviour
                 hasBurned = true;
                 StartCoroutine(IsBurning());
                 soundClip.Play();
-                ps.gameObject.transform.parent.gameObject.SetActive(true);      // fire element
+                fire.SetActive(true);
                 ps.Play();
-                lt.gameObject.SetActive(true);      // fire light
-                Aspen.currentCharge -= ChargeCost;
+                lt.gameObject.SetActive(true);
+                Aspen.currentCharge -= chargeCost;
             }
         }
     }
