@@ -1,10 +1,9 @@
-using System.Collections;
 using UnityEngine;
 
 public class Charging : MonoBehaviour
 {
-    [SerializeField] private bool triggerActive = false;
-    [SerializeField] public CharacterController2D Aspen;
+    [SerializeField] CharacterController2D Aspen;
+    [SerializeField] bool triggerActive = false;
 
     public void OnTriggerEnter2D(Collider2D other)
     {
