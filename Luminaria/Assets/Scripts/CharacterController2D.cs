@@ -28,13 +28,13 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] UnityEngine.U2D.Animation.SpriteLibrary spriteLibrary = null;
 
     [Header("Movement")]
-    [SerializeField] float acceleration = 4.0f;
-    [SerializeField] float maxSpeed = 0.0f;
-    [SerializeField] float jumpForce = 1.0f;
+    [SerializeField] float acceleration = 30.0f;
+    [SerializeField] float maxSpeed = 8.0f;
+    [SerializeField] float jumpForce = 35.0f;
     [SerializeField] float minFlipSpeed = 0.1f;
-    [SerializeField] float jumpGravityScale = 3.0f;
+    [SerializeField] float jumpGravityScale = 2.0f;
     [SerializeField] float fallGravityScale = 5.0f;
-    [SerializeField] float groundedGravityScale = 2.0f;
+    [SerializeField] float groundedGravityScale = 1.0f;
     [SerializeField] bool resetSpeedOnLand = false;
     // [SerializeField] UnityEvent test;
 
@@ -47,11 +47,9 @@ public class CharacterController2D : MonoBehaviour
     private Vector2 movementInput;
     private bool jumpInput;
 
-    [Header("Animation")]
+    [Header("Animation Overrides")]
     public AnimatorOverrideController AspenLeft;
     public AnimatorOverrideController AspenRight;
-    public bool isBurning = false;
-    public bool faceRight = false;
 
     private Vector2 prevVelocity;
     private GroundType groundType;
@@ -59,6 +57,7 @@ public class CharacterController2D : MonoBehaviour
     private bool isFalling;
     private bool isGliding;
     private bool doubleJump = false;
+    private bool faceRight = false;
     private bool hasTransitioned;
 
     private int animatorGroundedBool;
@@ -70,8 +69,9 @@ public class CharacterController2D : MonoBehaviour
 
     // Staff Charge Variables
     [Header("Charge")]
+    public bool isBurning = false;
     public int currentCharge;
-    private int maxCharge = 3;
+    public int maxCharge = 3;
     private Light2D lt;
     private ParticleSystem ps;
     private ParticleSystem.MainModule main;
@@ -142,9 +142,9 @@ public class CharacterController2D : MonoBehaviour
             hasTransitioned = false;
 
             if (keyboard.leftArrowKey.isPressed || keyboard.aKey.isPressed)
-                moveHorizontal = -1.0f;
+                moveHorizontal = keyboard.zKey.isPressed ? -3.0f : -1.0f;
             else if (keyboard.rightArrowKey.isPressed || keyboard.dKey.isPressed)
-                moveHorizontal = 1.0f;
+                moveHorizontal = keyboard.zKey.isPressed ? 3.0f : 1.0f;
 
         } else if (!isFalling) {
             // only allow burning while falling and not moving
