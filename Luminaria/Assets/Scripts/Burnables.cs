@@ -15,7 +15,7 @@ public class Burnables : MonoBehaviour
     private AudioSource soundClip;
     private GameObject fire;
 
-    public void Start()
+    void Start()
     {
         ps = GetComponentInChildren<ParticleSystem>(true);
         lt = GetComponentInChildren<Light2D>(true);             // ambient light
@@ -29,21 +29,21 @@ public class Burnables : MonoBehaviour
         ps.GetComponent<Renderer>().sortingOrder = 21;
     }
 
-    public void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Aspen")) {
             triggerActive = true;
         }
     }
 
-    public void OnTriggerExit2D(Collider2D other)
+    void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Aspen")) {
             triggerActive = false;
         }
     }
 
-    private void Update()
+    void Update()
     {
         if (triggerActive && Aspen.isBurning) {
             if (Aspen.currentCharge != 0) {
@@ -72,7 +72,7 @@ public class Burnables : MonoBehaviour
 
             lt.intensity = 3*ft;
 
-            yield return new WaitForSeconds(.15f);
+            yield return null;
         }
 
         ps.Stop();

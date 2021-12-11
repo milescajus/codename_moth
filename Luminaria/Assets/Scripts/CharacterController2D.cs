@@ -226,7 +226,7 @@ public class CharacterController2D : MonoBehaviour
         for (float ft = prevCharge; ft < currentCharge; ft += 0.1f) {
             main.simulationSpeed = ft + 1;
             lt.intensity = ft;
-            yield return new WaitForSeconds(.1f);
+            yield return null;
         }
     }
 
@@ -235,7 +235,7 @@ public class CharacterController2D : MonoBehaviour
         for (float ft = prevCharge; ft >= currentCharge; ft -= 0.1f) {
             main.simulationSpeed = ft + 1;
             lt.intensity = ft;
-            yield return new WaitForSeconds(.1f);
+            yield return null;
         }
     }
 
