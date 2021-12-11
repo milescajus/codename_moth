@@ -1889,8 +1889,8 @@ MonoBehaviour:
   - {fileID: 353030487}
   - {fileID: 1141480708}
   m_Bounds:
-    m_Center: {x: -0.7261958, y: -1.4419346, z: 0.0000014057387}
-    m_Extent: {x: 5.5561895, y: 5.137165, z: 1.1368684e-13}
+    m_Center: {x: -0.7261958, y: -1.4419341, z: 0.0000014057387}
+    m_Extent: {x: 5.5561895, y: 5.1371646, z: 1.1368684e-13}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -5670,8 +5670,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241980316}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 121, y: -0.217, z: 0}
-  m_LocalScale: {x: 1.8871, y: 1.8871, z: 1.8871}
+  m_LocalPosition: {x: 120.45, y: -0.85, z: 0}
+  m_LocalScale: {x: 9.5, y: 13.06, z: 1.8871}
   m_Children: []
   m_Father: {fileID: 1634641706}
   m_RootOrder: 0
@@ -5715,8 +5715,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1950422495
-  m_SortingLayer: 1
+  m_SortingLayerID: -1567155121
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 0
@@ -39451,7 +39451,6 @@ MonoBehaviour:
   triggerActive: 0
   Aspen: {fileID: 7906095724789732454}
   ChargeCost: 1
-  ps: {fileID: 0}
 --- !u!61 &883087208
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54475,7 +54474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1268775685
 Transform:
   m_ObjectHideFlags: 0
@@ -54956,8 +54955,8 @@ MonoBehaviour:
   - {fileID: 416384607}
   - {fileID: 511259569}
   m_Bounds:
-    m_Center: {x: 0.06967449, y: -0.92815876, z: 0.000005294787}
-    m_Extent: {x: 6.419656, y: 4.827965, z: 4.5474735e-13}
+    m_Center: {x: 0.06967449, y: -0.9281564, z: 0.000005294787}
+    m_Extent: {x: 6.419656, y: 4.8279643, z: 4.5474735e-13}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -62544,7 +62543,7 @@ MonoBehaviour:
   - {fileID: 1948165366}
   m_Bounds:
     m_Center: {x: 0.06965399, y: -0.9281559, z: 0.0000036960596}
-    m_Extent: {x: 6.419655, y: 4.8279653, z: 4.5474735e-13}
+    m_Extent: {x: 6.419655, y: 4.8279657, z: 4.5474735e-13}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0

@@ -22,7 +22,7 @@ public class PickUps : MonoBehaviour
         if (other.gameObject.CompareTag("Aspen")) {
 
             if (gameObject.CompareTag("ChargeParticle")) {
-                Aspen.UpdateCharge(1);
+                Aspen.currentCharge++;
             }
 
             else if (gameObject.CompareTag("KeyStone")) {

@@ -32,7 +32,7 @@ public class Charging : MonoBehaviour
     private IEnumerator Charge()
     {
         while(true) {
-            Aspen.UpdateCharge(1);
+            Aspen.currentCharge++;
             yield return new WaitForSeconds(0.2f);
         }
     }

@@ -36,7 +36,7 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] float fallGravityScale = 5.0f;
     [SerializeField] float groundedGravityScale = 2.0f;
     [SerializeField] bool resetSpeedOnLand = false;
-    [SerializeField] UnityEvent test;
+    // [SerializeField] UnityEvent test;
 
     private Rigidbody2D controllerRigidbody;
     private CapsuleCollider2D controllerCollider;
@@ -47,6 +47,7 @@ public class CharacterController2D : MonoBehaviour
     private Vector2 movementInput;
     private bool jumpInput;
 
+    [Header("Animation")]
     public AnimatorOverrideController AspenLeft;
     public AnimatorOverrideController AspenRight;
     public bool isBurning = false;
@@ -68,8 +69,9 @@ public class CharacterController2D : MonoBehaviour
     private int animatorGlidingBool;
 
     // Staff Charge Variables
+    [Header("Charge")]
+    public int currentCharge;
     private int maxCharge = 3;
-    private int currentCharge;
     private Light2D lt;
     private ParticleSystem ps;
     private ParticleSystem.MainModule main;
@@ -121,7 +123,7 @@ public class CharacterController2D : MonoBehaviour
         main = ps.main;
         em = ps.emission;
         currentCharge = 0;
-        UpdateCharge(0);
+        prevCharge = -1;
     }
 
     void Update()
@@ -177,9 +179,9 @@ public class CharacterController2D : MonoBehaviour
 
         // Debug Charging
         if (keyboard.cKey.wasPressedThisFrame)
-            UpdateCharge(1);
+            currentCharge++;
         if (keyboard.xKey.wasPressedThisFrame)
-            UpdateCharge(-1);
+            currentCharge--;
     }
 
     private float bounds(float n, int lower, int upper)
@@ -189,19 +191,34 @@ public class CharacterController2D : MonoBehaviour
         return n;
     }
 
-    public void UpdateCharge(int n)
+    void FixedUpdate()
     {
-        prevCharge = (float) currentCharge;
-        currentCharge = (int) bounds(currentCharge + n, 0, maxCharge);
+        UpdateGrounding();
+        UpdateVelocity();
+        UpdateAnimation();
+        UpdateJump();
+        UpdateGravityScale();
+
+        if (prevCharge != currentCharge)
+            UpdateCharge();
+
+        prevVelocity = controllerRigidbody.velocity;
+    }
+
+    public void UpdateCharge()
+    {
+        currentCharge = (int) bounds(currentCharge, 0, maxCharge);
 
         main.maxParticles = 7 * currentCharge;
         em.rateOverTime = 3 * currentCharge;
 
         if (prevCharge < currentCharge) {
             StartCoroutine(FadeUp());
-        } else {
+        } else if (prevCharge > currentCharge) {
             StartCoroutine(FadeDown());
         }
+
+        prevCharge = (float) currentCharge;
     }
 
     private IEnumerator FadeUp()
@@ -220,19 +237,6 @@ public class CharacterController2D : MonoBehaviour
             lt.intensity = ft;
             yield return new WaitForSeconds(.1f);
         }
-    }
-
-    public int GetCharge() { return currentCharge; }
-
-    void FixedUpdate()
-    {
-        UpdateGrounding();
-        UpdateVelocity();
-        UpdateAnimation();
-        UpdateJump();
-        UpdateGravityScale();
-
-        prevVelocity = controllerRigidbody.velocity;
     }
 
     private void UpdateGrounding()
