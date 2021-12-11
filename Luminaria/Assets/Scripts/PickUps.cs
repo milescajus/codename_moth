@@ -12,17 +12,17 @@ public class PickUps : MonoBehaviour
     // Scaling
     private Vector3 initialScale;
 
-    // Lighting
+    [Header("Lighting")]
+    [SerializeField] float baseIntensity = 0.47f;
     private SpriteRenderer r;
     private Light2D lt;
-    private float initialIntensity;
 
     // Collecting
     private Vector3 shrinkFactor;
 
     [Header("Pulsing")]
     [SerializeField] float pulseRate = 0.03f;
-    [SerializeField] float rotateFactor = 1.0f;
+    [SerializeField] float rotateRate = 1.0f;
     [SerializeField] float scaleAmp = 0.05f;
     [SerializeField] float glowAmp = 0.5f;
     [SerializeField] bool rotate = false;
@@ -39,11 +39,10 @@ public class PickUps : MonoBehaviour
         lt = GetComponentInChildren<Light2D>(true);
         r = GetComponent<SpriteRenderer>();
 
-        initialIntensity = lt.intensity;
         initialScale = transform.localScale;
 
         shrinkFactor = initialScale / 5;
-        rotateVect = new Vector3(0, 0, rotateFactor);
+        rotateVect = new Vector3(0, 0, rotateRate);
 
         pulseTime = 0f;
         pulsePeriod = 2*Math.PI / pulseRate;
@@ -57,7 +56,7 @@ public class PickUps : MonoBehaviour
 
         while(true) {
             float scaleFactor = (float) (initialScale.x + scaleAmp + scaleAmp*Math.Sin(pulseTime));
-            float glowFactor = (float) (initialIntensity + glowAmp + glowAmp*Math.Sin(pulseTime));
+            float glowFactor = (float) (baseIntensity + glowAmp + glowAmp*Math.Sin(pulseTime));
 
             if (rotate)
                 transform.Rotate(-rotateVect);

@@ -910,8 +910,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aspenObject: {fileID: 0}
   chargeValue: 1
+  baseIntensity: 1
   pulseRate: 0.03
-  rotateFactor: 1
+  rotateRate: 1
   scaleAmp: 0.05
   glowAmp: 0.4
   rotate: 1
