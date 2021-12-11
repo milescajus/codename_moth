@@ -602,7 +602,6 @@ GameObject:
   - component: {fileID: 6524128806638113802}
   - component: {fileID: 6524128806638113801}
   - component: {fileID: 6524128806638113800}
-  - component: {fileID: 4652484742539852749}
   m_Layer: 0
   m_Name: LightOrb
   m_TagString: LightOrb
@@ -714,22 +713,3 @@ MonoBehaviour:
   rotate: 1
   scale: 1
   glow: 1
---- !u!95 &4652484742539852749
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6524128806638113807}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9cf007dee016c484e9b2ba39490f07d4, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
