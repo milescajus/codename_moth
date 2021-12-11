@@ -22,18 +22,7 @@ public class Charging : MonoBehaviour
 
     private void Update()
     {
-        if (triggerActive && Aspen.isBurning) {
-            StartCoroutine(Charge());
-        } else {
-            StopCoroutine(Charge());
-        }
-    }
-
-    private IEnumerator Charge()
-    {
-        while(true) {
-            Aspen.currentCharge++;
-            yield return new WaitForSeconds(0.2f);
-        }
+        if (triggerActive && Aspen.isBurning)
+            Aspen.currentCharge = Aspen.maxCharge;
     }
 }
