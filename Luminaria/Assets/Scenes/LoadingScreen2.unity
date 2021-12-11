@@ -430,7 +430,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Your staff can interacts with various objects than you think.
+  m_text: Your staff can interacts with more objects than you think.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cc8a34f17139dd94b9896d925852d4d5, type: 2}
   m_sharedMaterial: {fileID: 7091187423177809905, guid: cc8a34f17139dd94b9896d925852d4d5,
