@@ -56,8 +56,8 @@ public class PickUps : MonoBehaviour
         // uses periodic function for smooth pulsing
 
         while(true) {
-            float scaleFactor = (float) (initialScale.x + scaleAmp*Math.Sin(pulseTime));
-            float glowFactor = (float) (initialIntensity + glowAmp*Math.Sin(pulseTime));
+            float scaleFactor = (float) (initialScale.x + scaleAmp + scaleAmp*Math.Sin(pulseTime));
+            float glowFactor = (float) (initialIntensity + glowAmp + glowAmp*Math.Sin(pulseTime));
 
             if (rotate)
                 transform.Rotate(-rotateVect);
