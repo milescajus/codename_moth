@@ -3784,6 +3784,7 @@ GameObject:
   - component: {fileID: 163598715}
   - component: {fileID: 163598717}
   - component: {fileID: 163598718}
+  - component: {fileID: 163598719}
   m_Layer: 8
   m_Name: Moth_ShelfMushGreen3
   m_TagString: Untagged
@@ -3899,6 +3900,25 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!95 &163598719
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163598714}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 38694dc93e071c74e9cbb3396cb89b62, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &174246246
 GameObject:
   m_ObjectHideFlags: 0
@@ -18817,6 +18837,7 @@ GameObject:
   - component: {fileID: 423653445}
   - component: {fileID: 423653447}
   - component: {fileID: 423653448}
+  - component: {fileID: 423653449}
   m_Layer: 8
   m_Name: Moth_ShelfMushGreen5
   m_TagString: Untagged
@@ -18932,6 +18953,25 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!95 &423653449
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423653444}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 44d6c395a0821c8459a09e68f2d4efe0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &426687952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33800,6 +33840,7 @@ GameObject:
   - component: {fileID: 675360452}
   - component: {fileID: 675360453}
   - component: {fileID: 675360454}
+  - component: {fileID: 675360455}
   m_Layer: 0
   m_Name: Platform2
   m_TagString: Untagged
@@ -33918,6 +33959,25 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!95 &675360455
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675360450}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a49d638a23405d642a78e63cea3ba1cf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &679638709
 GameObject:
   m_ObjectHideFlags: 0
@@ -35647,6 +35707,7 @@ GameObject:
   - component: {fileID: 751998142}
   - component: {fileID: 751998144}
   - component: {fileID: 751998145}
+  - component: {fileID: 751998146}
   m_Layer: 8
   m_Name: Moth_ShelfMushGreen1
   m_TagString: Untagged
@@ -35762,6 +35823,25 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!95 &751998146
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751998141}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ad2829b4e8397f745ae3496ac35c75b8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &754820476
 GameObject:
   m_ObjectHideFlags: 0
@@ -39363,6 +39443,7 @@ GameObject:
   - component: {fileID: 882872598}
   - component: {fileID: 882872597}
   - component: {fileID: 882872599}
+  - component: {fileID: 882872600}
   m_Layer: 8
   m_Name: Moth_PlatformCluster1
   m_TagString: Untagged
@@ -39379,7 +39460,7 @@ Transform:
   m_GameObject: {fileID: 882872594}
   m_LocalRotation: {x: -0, y: -0, z: 0.028027246, w: 0.99960715}
   m_LocalPosition: {x: 19.442299, y: 1.1493998, z: 0}
-  m_LocalScale: {x: 1.6874789, y: 1.6874789, z: 1.6874789}
+  m_LocalScale: {x: 1.687479, y: 1.6874789, z: 1.687479}
   m_Children:
   - {fileID: 963318342}
   - {fileID: 764555899}
@@ -39508,6 +39589,25 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!95 &882872600
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882872594}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 457947c8450959647b90e33a9aeb61da, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &883087204
 GameObject:
   m_ObjectHideFlags: 0
@@ -44419,6 +44519,7 @@ GameObject:
   - component: {fileID: 1043970742}
   - component: {fileID: 1043970744}
   - component: {fileID: 1043970743}
+  - component: {fileID: 1043970745}
   m_Layer: 8
   m_Name: Moth_PlatformCluster1 (1)
   m_TagString: Untagged
@@ -44435,7 +44536,7 @@ Transform:
   m_GameObject: {fileID: 1043970739}
   m_LocalRotation: {x: -0, y: -0, z: -0.029840864, w: 0.9995547}
   m_LocalPosition: {x: 41.2304, y: 1.0817999, z: 0}
-  m_LocalScale: {x: 1.6874789, y: 1.6874789, z: 1.6874789}
+  m_LocalScale: {x: 1.687479, y: 1.6874789, z: 1.687479}
   m_Children:
   - {fileID: 1419750802}
   - {fileID: 1875145657}
@@ -44570,6 +44671,25 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!95 &1043970745
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043970739}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5a4e1c2363e09764ca87aeb299e5b771, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1044592805
 GameObject:
   m_ObjectHideFlags: 0
@@ -52617,6 +52737,7 @@ GameObject:
   - component: {fileID: 1192836572}
   - component: {fileID: 1192836574}
   - component: {fileID: 1192836575}
+  - component: {fileID: 1192836576}
   m_Layer: 8
   m_Name: Moth_ShelfMushGreen4
   m_TagString: Untagged
@@ -52732,6 +52853,25 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!95 &1192836576
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192836571}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 36f7cb700f0718f418a3e69a895dea2b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1195922023
 GameObject:
   m_ObjectHideFlags: 0
@@ -65721,6 +65861,7 @@ GameObject:
   - component: {fileID: 1788140186}
   - component: {fileID: 1788140188}
   - component: {fileID: 1788140187}
+  - component: {fileID: 1788140189}
   m_Layer: 8
   m_Name: Platform2
   m_TagString: Untagged
@@ -65840,6 +65981,25 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!95 &1788140189
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788140184}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5386df3929359de48ad810d34edc893e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1788944679
 GameObject:
   m_ObjectHideFlags: 0
@@ -65975,6 +66135,7 @@ GameObject:
   - component: {fileID: 1793601243}
   - component: {fileID: 1793601242}
   - component: {fileID: 1793601241}
+  - component: {fileID: 1793601244}
   m_Layer: 0
   m_Name: MushObstacle (2)
   m_TagString: Untagged
@@ -65991,7 +66152,7 @@ Transform:
   m_GameObject: {fileID: 1793601239}
   m_LocalRotation: {x: -0, y: -0, z: 0.018286122, w: 0.9998328}
   m_LocalPosition: {x: 95.21, y: -7.47, z: 0}
-  m_LocalScale: {x: 0.42924926, y: 0.42924926, z: 0.42924923}
+  m_LocalScale: {x: 0.4292493, y: 0.42924926, z: 0.4292492}
   m_Children:
   - {fileID: 996461385}
   - {fileID: 404803724}
@@ -66097,6 +66258,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1793601244
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793601239}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d852b2bbb911e69458981257d74f7edb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1794514141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67059,6 +67239,7 @@ GameObject:
   - component: {fileID: 1838978756}
   - component: {fileID: 1838978755}
   - component: {fileID: 1838978754}
+  - component: {fileID: 1838978757}
   m_Layer: 0
   m_Name: MushObstacle (1)
   m_TagString: Untagged
@@ -67075,7 +67256,7 @@ Transform:
   m_GameObject: {fileID: 1838978752}
   m_LocalRotation: {x: -0, y: -0, z: 0.1314892, w: 0.99131763}
   m_LocalPosition: {x: 101.56, y: -5.55, z: 0}
-  m_LocalScale: {x: 0.56048006, y: 0.56048006, z: 0.56048}
+  m_LocalScale: {x: 0.5604801, y: 0.56048006, z: 0.56048}
   m_Children:
   - {fileID: 1840180574}
   - {fileID: 584004901}
@@ -67181,6 +67362,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1838978757
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838978752}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 853afcf6eb9b8c84dba28180d78a6f2c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1840067479
 GameObject:
   m_ObjectHideFlags: 0
@@ -70317,6 +70517,7 @@ GameObject:
   - component: {fileID: 1914270335}
   - component: {fileID: 1914270337}
   - component: {fileID: 1914270338}
+  - component: {fileID: 1914270339}
   m_Layer: 8
   m_Name: Moth_ShelfMushGreen2
   m_TagString: Untagged
@@ -70385,7 +70586,7 @@ Transform:
   m_GameObject: {fileID: 1914270334}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -22.62, y: -0.77, z: 0}
-  m_LocalScale: {x: 0.88385916, y: 0.777019, z: 0.777019}
+  m_LocalScale: {x: 0.8838592, y: 0.777019, z: 0.777019}
   m_Children:
   - {fileID: 338219277}
   m_Father: {fileID: 1792849808}
@@ -70432,6 +70633,25 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!95 &1914270339
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914270334}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 578302e3374c41d42885dd7c90394d21, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1921395527
 GameObject:
   m_ObjectHideFlags: 0
@@ -70653,6 +70873,7 @@ GameObject:
   - component: {fileID: 1927383920}
   - component: {fileID: 1927383922}
   - component: {fileID: 1927383921}
+  - component: {fileID: 1927383923}
   m_Layer: 8
   m_Name: Platform1
   m_TagString: Untagged
@@ -70773,6 +70994,25 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!95 &1927383923
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927383918}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ef5b338e80cf0064f91f62f74d6c8970, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1941931786 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7042649126894813577, guid: 2ede5aa228657ba4e94a794189636552,
@@ -77962,6 +78202,7 @@ GameObject:
   - component: {fileID: 2079739444}
   - component: {fileID: 2079739445}
   - component: {fileID: 2079739446}
+  - component: {fileID: 2079739447}
   m_Layer: 0
   m_Name: Platform1
   m_TagString: Untagged
@@ -78083,6 +78324,25 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!95 &2079739447
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079739442}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1aad74a12955ac04faf376987e2c1488, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2081456095
 GameObject:
   m_ObjectHideFlags: 0
