@@ -9,8 +9,8 @@ public class FloatingPlatform : MonoBehaviour
     [SerializeField] int chargeCost = 1;
     [SerializeField] float riseModifier = 1.0f;
     [SerializeField] float riseRate = 0.01f;
-    private bool isFloating = false;
-    private bool triggerActive;
+    [SerializeField] private bool isFloating = false;
+    [SerializeField] private bool triggerActive;
     private float baseHeight;
     private Coroutine floating;
     new private Light2D light;
