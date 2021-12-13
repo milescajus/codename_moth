@@ -36,7 +36,7 @@ public class Endpoint : MonoBehaviour
         if (triggerActive && Aspen.isBurning) {
             if (!hasPlayedClip) {
                 soundClip.Play();
-                transform.GetChild(5).gameObject.SetActive(true);
+                transform.GetChild(2).gameObject.SetActive(true);
                 hasPlayedClip = true;
                 leave = true;
             }
