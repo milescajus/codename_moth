@@ -4,7 +4,12 @@ public class Charging : MonoBehaviour
 {
     [SerializeField] CharacterController2D Aspen;
     [SerializeField] bool triggerActive = false;
-
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip usedStation;
+    private void Start()
+    {
+        audioSource.GetComponent<AudioSource>();
+    }
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Aspen")) {
@@ -21,7 +26,15 @@ public class Charging : MonoBehaviour
 
     private void Update()
     {
-        if (triggerActive && Aspen.isBurning)
+        if (triggerActive && Aspen.isBurning && audioSource.isPlaying == false)
+        {
             Aspen.currentCharge = Aspen.maxCharge;
+            audioSource.PlayOneShot(usedStation);
+        }
+            
+
+
+        
+
     }
 }

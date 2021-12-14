@@ -8,6 +8,9 @@ public class PickUps : MonoBehaviour
     [Header("Aspen")]
     [SerializeField] CharacterController2D aspenObject;
     [SerializeField] int chargeValue = 0;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip stonePickup;
+    [SerializeField] AudioClip orbPickup;
 
     // Scaling
     private Vector3 initialScale;
@@ -38,6 +41,7 @@ public class PickUps : MonoBehaviour
     {
         lt = GetComponentInChildren<Light2D>(true);
         r = GetComponent<SpriteRenderer>();
+        audioSource.GetComponent<AudioSource>();
 
         initialScale = transform.localScale;
 
@@ -77,19 +81,23 @@ public class PickUps : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Aspen")) {
-            if (gameObject.CompareTag("KeyStone")) {
+            if (gameObject.CompareTag("KeyStone"))
+            {
+                audioSource.PlayOneShot(stonePickup);
                 LevelEndManger.totalNumofStone--;
             }
-
+            audioSource.PlayOneShot(orbPickup);
             aspenObject.currentCharge += chargeValue;
             StartCoroutine(Collect());
+            
         }
+        
     }
 
     private IEnumerator Collect()
     {
         StopCoroutine(pulsing);
-
+        
         for (float ft = lt.intensity; ft < 6; ft += 0.8f) {
             if (lt != null)
                 lt.intensity = ft;
@@ -107,7 +115,7 @@ public class PickUps : MonoBehaviour
 
             yield return null;
         }
-
+        
         Destroy(gameObject);
     }
 }

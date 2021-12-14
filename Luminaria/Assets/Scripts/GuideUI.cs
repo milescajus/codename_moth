@@ -5,10 +5,16 @@ using UnityEngine;
 public class GuideUI : MonoBehaviour
 {
     [SerializeField] private GameObject ThingToGuide;
+    
+  
+
+    
+
     // Start is called before the first frame update
     private void Start()
     {
         ThingToGuide.SetActive(false);
+       
     }
 
     // Update is called once per frame
@@ -22,6 +28,7 @@ public class GuideUI : MonoBehaviour
         if (collision.gameObject.tag == "Aspen")
         {
             ThingToGuide.SetActive(true);
+            
         }
     }
 

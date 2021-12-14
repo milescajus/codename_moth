@@ -13,9 +13,15 @@ public class LevelEndManger : MonoBehaviour
     [SerializeField] private bool portalActivatedOnce = false;
     [SerializeField] private bool portalActiveDone = false;
     [SerializeField] private string nextScene;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip sfxPortal;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
+        audioSource.GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         animator.SetBool("PortalActivating", false);
         ActivePortal.SetActive(false);
@@ -42,6 +48,7 @@ public class LevelEndManger : MonoBehaviour
             if (conditionClear)
             {
                 StartCoroutine(SetPortal());
+                audioSource.PlayOneShot(sfxPortal);
             }
         }
     }
@@ -68,6 +75,7 @@ public class LevelEndManger : MonoBehaviour
             yield return new WaitForSeconds(8);
             ActivePortal.SetActive(true);
             portalActiveDone = true;
+            
         }
     }
 
