@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelEndManger : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class LevelEndManger : MonoBehaviour
     public static int totalNumofStone;
     [SerializeField] private bool conditionClear = false;
     [SerializeField] private bool portalActivatedOnce = false;
+    [SerializeField] private bool portalActiveDone = false;
+    [SerializeField] private string nextScene;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,8 +46,20 @@ public class LevelEndManger : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Aspen"))
+        {
 
-    IEnumerator SetPortal()
+            if (portalActiveDone && Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                StartCoroutine(DelayedExitScene());
+            }
+        }
+    }
+
+
+    private IEnumerator SetPortal()
     {
         if (conditionClear && !portalActivatedOnce)
         {
@@ -52,6 +67,13 @@ public class LevelEndManger : MonoBehaviour
             animator.SetBool("PortalActivating", true);
             yield return new WaitForSeconds(8);
             ActivePortal.SetActive(true);
+            portalActiveDone = true;
         }
+    }
+
+    private IEnumerator DelayedExitScene()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(nextScene);
     }
 }
