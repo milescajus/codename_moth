@@ -11,7 +11,7 @@ public class Burnables : MonoBehaviour
     private bool hasBurned = false;
     private ParticleSystem ps;
     private Light2D lt;
-    private EdgeCollider2D barrier;
+    private Collider2D barrier;
     private AudioSource soundClip;
     private GameObject fire;
 
@@ -20,7 +20,7 @@ public class Burnables : MonoBehaviour
         ps = GetComponentInChildren<ParticleSystem>(true);
         lt = GetComponentInChildren<Light2D>(true);             // ambient light
         fire = ps.gameObject.transform.parent.gameObject;       // fire element
-        barrier = GetComponentInChildren<EdgeCollider2D>();
+        barrier = GetComponentInChildren<Collider2D>();
         soundClip = GetComponent<AudioSource>();
 
         // lt.gameObject.SetActive(false);                         // make sure is off before burning
@@ -55,6 +55,7 @@ public class Burnables : MonoBehaviour
                     ps.Play();
                     lt.gameObject.SetActive(true);
                     Aspen.currentCharge -= chargeCost;
+                    //Destroy(gameObject);
                 }
             } else {
                 // NOT ENOUGH CHARGE
@@ -80,7 +81,6 @@ public class Burnables : MonoBehaviour
         Color end = GetComponent<SpriteRenderer>().color;
         end.a = 0f;
         GetComponent<SpriteRenderer>().color = end;
-
         Destroy(lt.gameObject);
         Destroy(barrier.gameObject);
     }
