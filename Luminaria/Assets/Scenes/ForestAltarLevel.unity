@@ -51982,6 +51982,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 588285197}
     m_Modifications:
+    - target: {fileID: 3183804671976899640, guid: ac8e8285cff007645a280c88eb962d20,
+        type: 3}
+      propertyPath: m_Points.Array.data[0].x
+      value: -0.7976136
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183804671976899640, guid: ac8e8285cff007645a280c88eb962d20,
+        type: 3}
+      propertyPath: m_Points.Array.data[1].x
+      value: 1.0621682
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183804671976899640, guid: ac8e8285cff007645a280c88eb962d20,
+        type: 3}
+      propertyPath: m_Points.Array.data[1].y
+      value: 0.09887457
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183804672529224896, guid: ac8e8285cff007645a280c88eb962d20,
+        type: 3}
+      propertyPath: aspenObject
+      value: 
+      objectReference: {fileID: 7906095724789732454}
     - target: {fileID: 3183804672529224902, guid: ac8e8285cff007645a280c88eb962d20,
         type: 3}
       propertyPath: m_Name
