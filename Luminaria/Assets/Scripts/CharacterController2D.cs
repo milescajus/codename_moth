@@ -291,7 +291,8 @@ public class CharacterController2D : MonoBehaviour
             animator.SetTrigger(animatorJumpTrigger);
 
             // Jump using impulse force
-            controllerRigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            // controllerRigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            controllerRigidbody.AddForce(transform.up * 2200f);
 
             // We've consumed the jump, reset it.
             jumpInput = false;
