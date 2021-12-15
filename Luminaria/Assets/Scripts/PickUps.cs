@@ -8,9 +8,7 @@ public class PickUps : MonoBehaviour
     [Header("Aspen")]
     [SerializeField] CharacterController2D aspenObject;
     [SerializeField] int chargeValue = 0;
-    [SerializeField] AudioSource audioSource;
-    [SerializeField] AudioClip stonePickup;
-    [SerializeField] AudioClip orbPickup;
+
 
     // Scaling
     private Vector3 initialScale;
@@ -41,7 +39,7 @@ public class PickUps : MonoBehaviour
     {
         lt = GetComponentInChildren<Light2D>(true);
         r = GetComponent<SpriteRenderer>();
-        audioSource.GetComponent<AudioSource>();
+   
 
         initialScale = transform.localScale;
 
@@ -83,10 +81,8 @@ public class PickUps : MonoBehaviour
         if (other.gameObject.CompareTag("Aspen")) {
             if (gameObject.CompareTag("KeyStone"))
             {
-                audioSource.PlayOneShot(stonePickup);
                 LevelEndManger.totalNumofStone--;
             }
-            audioSource.PlayOneShot(orbPickup);
             aspenObject.currentCharge += chargeValue;
             StartCoroutine(Collect());
             

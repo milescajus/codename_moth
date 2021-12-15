@@ -49,8 +49,9 @@ public class Burnables : MonoBehaviour
             if (Aspen.currentCharge != 0) {
                 if (!hasBurned) {
                     hasBurned = true;
-                    StartCoroutine(IsBurning());
                     soundClip.Play();
+                    StartCoroutine(IsBurning());
+                    
                     fire.SetActive(true);
                     ps.Play();
                     lt.gameObject.SetActive(true);
