@@ -74679,7 +74679,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -742.16, y: -264.71}
+  m_AnchoredPosition: {x: -741.37, y: -265.33}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &1769371431
@@ -74721,6 +74721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThingToGuide: {fileID: 1762189776}
+  destroyOnFadeOut: 0
 --- !u!4 &1772323736 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7906095723340371965, guid: 21c18efccfb014049bdf0988134a95ce,
@@ -89611,6 +89612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThingToGuide: {fileID: 2087607838}
+  destroyOnFadeOut: 0
 --- !u!1 &2050365334
 GameObject:
   m_ObjectHideFlags: 0
