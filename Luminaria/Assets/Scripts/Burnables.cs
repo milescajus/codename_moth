@@ -51,7 +51,7 @@ public class Burnables : MonoBehaviour
                     hasBurned = true;
                     soundClip.Play();
                     StartCoroutine(IsBurning());
-                    
+
                     fire.SetActive(true);
                     ps.Play();
                     lt.gameObject.SetActive(true);
@@ -66,7 +66,7 @@ public class Burnables : MonoBehaviour
 
     private IEnumerator IsBurning()
     {
-        for (float ft = 1f; ft >= 0; ft -= 0.1f) 
+        for (float ft = 1f; ft >= 0; ft -= 0.1f)
         {
             Color c = GetComponent<SpriteRenderer>().color;
             c.a = ft;
@@ -74,7 +74,7 @@ public class Burnables : MonoBehaviour
 
             lt.intensity = 3*ft;
 
-            yield return null;
+            yield return new WaitForSeconds(0.1f);
         }
 
         ps.Stop();

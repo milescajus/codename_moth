@@ -31,10 +31,5 @@ public class Charging : MonoBehaviour
             Aspen.currentCharge = Aspen.maxCharge;
             audioSource.PlayOneShot(usedStation);
         }
-            
-
-
-        
-
     }
 }

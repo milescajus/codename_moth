@@ -39,7 +39,6 @@ public class PickUps : MonoBehaviour
     {
         lt = GetComponentInChildren<Light2D>(true);
         r = GetComponent<SpriteRenderer>();
-   
 
         initialScale = transform.localScale;
 
@@ -85,15 +84,13 @@ public class PickUps : MonoBehaviour
             }
             aspenObject.currentCharge += chargeValue;
             StartCoroutine(Collect());
-            
         }
-        
     }
 
     private IEnumerator Collect()
     {
         StopCoroutine(pulsing);
-        
+
         for (float ft = lt.intensity; ft < 6; ft += 0.8f) {
             if (lt != null)
                 lt.intensity = ft;
@@ -101,7 +98,7 @@ public class PickUps : MonoBehaviour
             c.a = 1.0f - ft / 6;
             r.color = c;
 
-            yield return null;
+            yield return new WaitForSeconds(0.02f);
         }
 
         for (float ft = lt.intensity; ft >= 0; ft -= 1.2f) {
@@ -109,9 +106,9 @@ public class PickUps : MonoBehaviour
                 lt.intensity = ft;
             transform.localScale -= shrinkFactor;
 
-            yield return null;
+            yield return new WaitForSeconds(0.02f);
         }
-        
+
         Destroy(gameObject);
     }
 }
