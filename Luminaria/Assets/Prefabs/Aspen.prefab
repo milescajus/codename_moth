@@ -7117,7 +7117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7906095723340371958}
-  transform: {fileID: 0}
+  transform: {fileID: 7906095723340371965}
   audioPlayer: {fileID: 0}
   handAnchor: {fileID: 0}
   spriteLibrary: {fileID: 0}
