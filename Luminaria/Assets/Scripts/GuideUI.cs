@@ -8,16 +8,24 @@ public class GuideUI : MonoBehaviour
     [SerializeField] private GameObject ThingToGuide;
     [SerializeField] bool destroyOnFadeOut;
     private Coroutine fading;
+    private SpriteRenderer[] spriteRenderers;
+    private TMP_Text text;
 
     // Start is called before the first frame update
     private void Start()
     {
-        Color box = GetComponentInChildren<SpriteRenderer>().color;
-        Color text = GetComponentInChildren<TMP_Text>().color;
-        box.a = 0;
-        text.a = 0;
-        GetComponentInChildren<SpriteRenderer>().color = box;
-        GetComponentInChildren<TMP_Text>().color = text;
+        spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+        text = GetComponentInChildren<TMP_Text>();
+
+        foreach (SpriteRenderer sr in spriteRenderers) {
+            Color c = sr.color;
+            c.a = 0;
+            sr.color = c;
+        }
+
+        Color c_text = text.color;
+        c_text.a = 0;
+        text.color = c_text;
     }
 
     // Update is called once per frame
@@ -47,16 +55,19 @@ public class GuideUI : MonoBehaviour
         if (fading != null)     // currently fading
             StopCoroutine(fading);
 
-        Color start = GetComponentInChildren<SpriteRenderer>().color;
+        float start = text.color.a;
 
-        for (float ft = start.a; ft < 1f; ft += 0.1f)
+        for (float ft = start; ft < 1f; ft += 0.1f)
         {
-            Color box = GetComponentInChildren<SpriteRenderer>().color;
-            Color text = GetComponentInChildren<TMP_Text>().color;
-            box.a = ft;
-            text.a = ft;
-            GetComponentInChildren<SpriteRenderer>().color = box;
-            GetComponentInChildren<TMP_Text>().color = text;
+            foreach (SpriteRenderer sr in spriteRenderers) {
+                Color c = sr.color;
+                c.a = ft;
+                sr.color = c;
+            }
+
+            Color c_text = text.color;
+            c_text.a = ft;
+            text.color = c_text;
 
             yield return new WaitForSeconds(0.02f);
         }
@@ -67,16 +78,19 @@ public class GuideUI : MonoBehaviour
         if (fading != null)     // currently fading
             StopCoroutine(fading);
 
-        Color start = GetComponentInChildren<SpriteRenderer>().color;
+        float start = text.color.a;
 
-        for (float ft = start.a; ft >= 0f; ft -= 0.1f)
+        for (float ft = start; ft >= 0f; ft -= 0.1f)
         {
-            Color box = GetComponentInChildren<SpriteRenderer>().color;
-            Color text = GetComponentInChildren<TMP_Text>().color;
-            box.a = ft;
-            text.a = ft;
-            GetComponentInChildren<SpriteRenderer>().color = box;
-            GetComponentInChildren<TMP_Text>().color = text;
+            foreach (SpriteRenderer sr in spriteRenderers) {
+                Color c = sr.color;
+                c.a = ft;
+                sr.color = c;
+            }
+
+            Color c_text = text.color;
+            c_text.a = ft;
+            text.color = c_text;
 
             yield return new WaitForSeconds(0.02f);
         }
