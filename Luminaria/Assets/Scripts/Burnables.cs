@@ -7,7 +7,10 @@ public class Burnables : MonoBehaviour
     [SerializeField] CharacterController2D Aspen;
     [SerializeField] bool triggerActive = false;
     [SerializeField] int chargeCost = 1;
-
+    [SerializeField] int psRenderLayer = 26;
+    [Header("Hidden by it")]
+    [SerializeField] GameObject thingToHide;
+    [SerializeField] string nameOfIt;
     private bool hasBurned = false;
     private ParticleSystem ps;
     private Light2D lt;
@@ -20,13 +23,20 @@ public class Burnables : MonoBehaviour
         ps = GetComponentInChildren<ParticleSystem>(true);
         lt = GetComponentInChildren<Light2D>(true);             // ambient light
         fire = ps.gameObject.transform.parent.gameObject;       // fire element
-        barrier = GetComponentInChildren<Collider2D>();
         soundClip = GetComponent<AudioSource>();
-
+        if (!gameObject.CompareTag("HidingSomething"))
+        {
+            barrier = GetComponentInChildren<Collider2D>();
+        }
+        else
+        {
+            thingToHide = GameObject.Find(nameOfIt);
+            thingToHide.GetComponent<Collider2D>().enabled = false;
+        }
         // lt.gameObject.SetActive(false);                         // make sure is off before burning
         fire.SetActive(false);
         ps.GetComponent<Renderer>().sortingLayerName = "Foreground";
-        ps.GetComponent<Renderer>().sortingOrder = 21;
+        ps.GetComponent<Renderer>().sortingOrder = psRenderLayer;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -56,7 +66,6 @@ public class Burnables : MonoBehaviour
                     ps.Play();
                     lt.gameObject.SetActive(true);
                     Aspen.currentCharge -= chargeCost;
-                    //Destroy(gameObject);
                 }
             } else {
                 // NOT ENOUGH CHARGE
@@ -83,6 +92,13 @@ public class Burnables : MonoBehaviour
         end.a = 0f;
         GetComponent<SpriteRenderer>().color = end;
         Destroy(lt.gameObject);
-        Destroy(barrier.gameObject);
+        if (!gameObject.CompareTag("HidingSomething"))
+        {
+            Destroy(barrier.gameObject);
+        }
+        else
+        {
+            thingToHide.GetComponent<Collider2D>().enabled = true;
+        }
     }
 }

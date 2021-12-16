@@ -9,6 +9,7 @@ TagManager:
   - Light
   - KeyStone
   - LightOrb
+  - HidingSomething
   layers:
   - Default
   - TransparentFX
