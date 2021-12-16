@@ -10,14 +10,22 @@ public class CameraTrigger : MonoBehaviour
 
     public CinemachineVirtualCamera newCamera;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        newCamera.Priority = onPriority;
+        if (other.gameObject.CompareTag("Aspen"))
+        {
+            newCamera.Priority = onPriority;
+        }
+        
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        newCamera.Priority = offPriority;
+        if (other.gameObject.CompareTag("Aspen"))
+        {
+            newCamera.Priority = offPriority;
+        }
+        
     }
 
 }
