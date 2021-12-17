@@ -230,6 +230,7 @@ MonoBehaviour:
   riseRate: 0.01
   isFloating: 0
   triggerActive: 0
+  horizontalMove: 0
 --- !u!1 &3183804673172295781
 GameObject:
   m_ObjectHideFlags: 0

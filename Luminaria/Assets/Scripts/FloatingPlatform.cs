@@ -11,15 +11,20 @@ public class FloatingPlatform : MonoBehaviour
     [SerializeField] float riseRate = 0.01f;
     [SerializeField] private bool isFloating = false;
     [SerializeField] private bool triggerActive;
+    [SerializeField] private bool horizontalMove = false;
     private float baseHeight;
+    private float baseHorizon;
     private Coroutine floating;
     new private Light2D light;
     private float maxIntensity;
 
-    void OnTriggerEnter2D(Collider2D other)
+
+    void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Aspen")) {
+        if (other.gameObject.CompareTag("Aspen"))
+        {
             triggerActive = true;
+            other.transform.parent = this.gameObject.transform;
         }
     }
 
@@ -27,6 +32,7 @@ public class FloatingPlatform : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Aspen")) {
             triggerActive = false;
+            other.transform.parent = GameObject.Find("MOTH").transform;
         }
     }
 
@@ -37,6 +43,7 @@ public class FloatingPlatform : MonoBehaviour
         light.intensity = 0f;
 
         baseHeight = transform.localPosition.y;
+        baseHorizon = transform.localPosition.x;
     }
 
     void Update()
@@ -58,14 +65,31 @@ public class FloatingPlatform : MonoBehaviour
         isFloating = true;
         light.intensity = maxIntensity;
 
-        for (float ft = 0; ft < 2 * Math.PI; ft += riseRate) {
-            float y = (float) (1 - Math.Cos(ft));
-            transform.localPosition = new Vector3(transform.localPosition.x, baseHeight + (riseModifier * y), transform.localPosition.z);
+        if (!horizontalMove)
+        {
+            for (float ft = 0; ft < 2 * Math.PI; ft += riseRate)
+            {
+                float y = (float)(1 - Math.Cos(ft));
+                transform.localPosition = new Vector3(baseHorizon, baseHeight + (riseModifier * y), transform.localPosition.z);
 
-            if (ft > Math.PI)   // we've reached the apex, it's all downhill from here
-                light.intensity = y * maxIntensity / 2;
+                if (ft > Math.PI)   // we've reached the apex, it's all downhill from here
+                    light.intensity = y * maxIntensity / 2;
 
-            yield return null;
+                yield return null;
+            }
+        }
+        else
+        {
+            for (float ft = 0; ft < 2 * Math.PI; ft += riseRate)
+            {
+                float x = (float)(1 - Math.Cos(ft));
+                transform.localPosition = new Vector3(baseHorizon + (riseModifier * x), baseHeight, transform.localPosition.z);
+
+                if (ft > Math.PI)   // we've reached the apex, it's all downhill from here
+                    light.intensity = x * maxIntensity / 2;
+
+                yield return null;
+            }
         }
 
         isFloating = false;
